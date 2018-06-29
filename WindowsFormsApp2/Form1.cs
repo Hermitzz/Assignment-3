@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,44 @@ namespace WindowsFormsApp2
 			}
         }
 
+		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports
+		// whatever data is in the datagridview right now. Well its supposed to but there is a problem with the path.
+		private void Export()
+		{
+
+			if (DataGridView.Rows.Count != 0)
+			{
+
+				//put data grid view into csv
+				var StringBuilder = new StringBuilder();
+				
+
+				foreach (DataGridViewRow row in DataGridView.Rows)
+				{
+						foreach (DataGridViewCell cell in row.Cells)
+						{
+							StringBuilder.Append(cell.Value.ToString() + ",");
+						}
+						StringBuilder.AppendLine();
+				}
+
+				//current directory
+				string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+
+				TextWriter textWrite = new StreamWriter(exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text);
+
+				
+				textWrite.Write(StringBuilder.ToString());
+				textWrite.Close();
+
+				MessageBox.Show("Your data has been exported to " + exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+
 		// checks which option is currently selected and adds data from the fields to the database.
 		private void AddButton_Click(object sender, EventArgs e)
         {
@@ -118,5 +157,10 @@ namespace WindowsFormsApp2
 				// write an exception message for users if no option is selected
 			}
         }
+
+		private void ExportButton_Click(object sender, EventArgs e)
+		{
+			Export();
+		}
 	}
 }

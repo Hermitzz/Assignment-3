@@ -249,6 +249,7 @@
 			this.ExportButton.TabIndex = 29;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// AssignJobButton
 			// 
