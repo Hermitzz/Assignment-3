@@ -49,8 +49,6 @@
 			this.ExportButton = new System.Windows.Forms.Button();
 			this.AssignJobButton = new System.Windows.Forms.Button();
 			this.AddButton = new System.Windows.Forms.Button();
-			this.EditButton = new System.Windows.Forms.Button();
-			this.DeleteButton = new System.Windows.Forms.Button();
 			this.AddClientGroupBox = new System.Windows.Forms.GroupBox();
 			this.AddContractorGroupBox = new System.Windows.Forms.GroupBox();
 			this.ContractorNameLabel = new System.Windows.Forms.Label();
@@ -225,16 +223,16 @@
 			this.DataGridView.AllowUserToAddRows = false;
 			this.DataGridView.AllowUserToDeleteRows = false;
 			this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DataGridView.Location = new System.Drawing.Point(23, 325);
+			this.DataGridView.Location = new System.Drawing.Point(12, 325);
 			this.DataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.DataGridView.Name = "DataGridView";
 			this.DataGridView.ReadOnly = true;
-			this.DataGridView.Size = new System.Drawing.Size(368, 205);
+			this.DataGridView.Size = new System.Drawing.Size(396, 205);
 			this.DataGridView.TabIndex = 27;
 			// 
 			// ImportButton
 			// 
-			this.ImportButton.Location = new System.Drawing.Point(296, 237);
+			this.ImportButton.Location = new System.Drawing.Point(296, 200);
 			this.ImportButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.ImportButton.Name = "ImportButton";
 			this.ImportButton.Size = new System.Drawing.Size(112, 35);
@@ -244,7 +242,7 @@
 			// 
 			// ExportButton
 			// 
-			this.ExportButton.Location = new System.Drawing.Point(296, 282);
+			this.ExportButton.Location = new System.Drawing.Point(296, 242);
 			this.ExportButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.ExportButton.Name = "ExportButton";
 			this.ExportButton.Size = new System.Drawing.Size(112, 35);
@@ -254,7 +252,7 @@
 			// 
 			// AssignJobButton
 			// 
-			this.AssignJobButton.Location = new System.Drawing.Point(296, 193);
+			this.AssignJobButton.Location = new System.Drawing.Point(296, 155);
 			this.AssignJobButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.AssignJobButton.Name = "AssignJobButton";
 			this.AssignJobButton.Size = new System.Drawing.Size(112, 35);
@@ -264,7 +262,7 @@
 			// 
 			// AddButton
 			// 
-			this.AddButton.Location = new System.Drawing.Point(30, 540);
+			this.AddButton.Location = new System.Drawing.Point(296, 286);
 			this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.AddButton.Name = "AddButton";
 			this.AddButton.Size = new System.Drawing.Size(112, 35);
@@ -272,26 +270,6 @@
 			this.AddButton.Text = "Add";
 			this.AddButton.UseVisualStyleBackColor = true;
 			this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-			// 
-			// EditButton
-			// 
-			this.EditButton.Location = new System.Drawing.Point(150, 540);
-			this.EditButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.EditButton.Name = "EditButton";
-			this.EditButton.Size = new System.Drawing.Size(112, 35);
-			this.EditButton.TabIndex = 33;
-			this.EditButton.Text = "Edit";
-			this.EditButton.UseVisualStyleBackColor = true;
-			// 
-			// DeleteButton
-			// 
-			this.DeleteButton.Location = new System.Drawing.Point(270, 540);
-			this.DeleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.DeleteButton.Name = "DeleteButton";
-			this.DeleteButton.Size = new System.Drawing.Size(112, 35);
-			this.DeleteButton.TabIndex = 34;
-			this.DeleteButton.Text = "Delete";
-			this.DeleteButton.UseVisualStyleBackColor = true;
 			// 
 			// AddClientGroupBox
 			// 
@@ -584,12 +562,10 @@
 			// 
 			// HomeBaseForm
 			// 
-			this.ClientSize = new System.Drawing.Size(419, 580);
+			this.ClientSize = new System.Drawing.Size(419, 536);
 			this.Controls.Add(this.AddJobRadioButton);
 			this.Controls.Add(this.AddClientGroupBox);
 			this.Controls.Add(this.DataGridView);
-			this.Controls.Add(this.DeleteButton);
-			this.Controls.Add(this.EditButton);
 			this.Controls.Add(this.AddButton);
 			this.Controls.Add(this.AssignJobButton);
 			this.Controls.Add(this.ExportButton);
@@ -640,8 +616,6 @@
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button AssignJobButton;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.GroupBox AddClientGroupBox;
         private System.Windows.Forms.GroupBox AddContractorGroupBox;
         private System.Windows.Forms.Label ContractorNameLabel;
