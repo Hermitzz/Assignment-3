@@ -62,7 +62,7 @@
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.JobPriorityLabel = new System.Windows.Forms.Label();
 			this.JobLocationTextBox = new System.Windows.Forms.TextBox();
-			this.DateTimeTextBox = new System.Windows.Forms.TextBox();
+			this.JobDateTimeTextBox = new System.Windows.Forms.TextBox();
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.ContractorLandLineLabel = new System.Windows.Forms.Label();
 			this.ContractorMobilePhoneLabel = new System.Windows.Forms.Label();
@@ -365,7 +365,7 @@
 			this.AddJobGroupBox.Controls.Add(this.JobDateAndTimeLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobPriorityLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobLocationTextBox);
-			this.AddJobGroupBox.Controls.Add(this.DateTimeTextBox);
+			this.AddJobGroupBox.Controls.Add(this.JobDateTimeTextBox);
 			this.AddJobGroupBox.Controls.Add(this.JobShortDescriptionTextBox);
 			this.AddJobGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.AddJobGroupBox.Location = new System.Drawing.Point(0, 0);
@@ -436,12 +436,12 @@
 			this.JobLocationTextBox.Size = new System.Drawing.Size(100, 20);
 			this.JobLocationTextBox.TabIndex = 10;
 			// 
-			// DateTimeTextBox
+			// JobDateTimeTextBox
 			// 
-			this.DateTimeTextBox.Location = new System.Drawing.Point(154, 207);
-			this.DateTimeTextBox.Name = "DateTimeTextBox";
-			this.DateTimeTextBox.Size = new System.Drawing.Size(100, 20);
-			this.DateTimeTextBox.TabIndex = 24;
+			this.JobDateTimeTextBox.Location = new System.Drawing.Point(154, 207);
+			this.JobDateTimeTextBox.Name = "JobDateTimeTextBox";
+			this.JobDateTimeTextBox.Size = new System.Drawing.Size(100, 20);
+			this.JobDateTimeTextBox.TabIndex = 24;
 			// 
 			// JobShortDescriptionTextBox
 			// 
@@ -662,7 +662,7 @@
         private System.Windows.Forms.Label JobDateAndTimeLabel;
         private System.Windows.Forms.Label JobPriorityLabel;
         private System.Windows.Forms.TextBox JobLocationTextBox;
-        private System.Windows.Forms.TextBox DateTimeTextBox;
+        private System.Windows.Forms.TextBox JobDateTimeTextBox;
         private System.Windows.Forms.TextBox JobShortDescriptionTextBox;
         private System.Windows.Forms.RadioButton AddJobRadioButton;
         private System.Windows.Forms.ComboBox JobPriorityComboBox;

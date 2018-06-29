@@ -15,7 +15,6 @@ namespace WindowsFormsApp2
         public HomeBaseForm()
         {
             InitializeComponent();
-            //sahdsakjfgaskjfgakfak
         }
 
 		private void Form1_Load_1(object sender, EventArgs e)
@@ -33,8 +32,10 @@ namespace WindowsFormsApp2
 			AddJobGroupBox.Visible = false;
 			AddJobGroupBox.Parent = AddClientGroupBox.Parent;
 			AddJobGroupBox.Location = AddClientGroupBox.Location;
+			JobPriorityComboBox.SelectedIndex = 0;
 		}
 
+		// makes the selected groupbox visible and the others invisible
 		private void AddClientRadioButton_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -75,31 +76,47 @@ namespace WindowsFormsApp2
 			}
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+		// checks which option is currently selected and adds data from the fields to the database.
+		private void AddButton_Click(object sender, EventArgs e)
         {
-			int ControlCount = 0;
-			foreach (GroupBox GroupBox in this.Controls.OfType<GroupBox>().ToArray())
+			if (AddClientRadioButton.Checked == true)
 			{
-				foreach (Control Control in GroupBox.Controls)
-				{
-					if (Control.GetType() == new TextBox().GetType())
-					{
-						ControlCount ++;
-					}
-					else if (Control.GetType() == new ComboBox().GetType())
-					{
-						ControlCount ++;
-					}
-				}
+				DataBaseDataSet.ClientsRow NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
+				NewClientsRow.name = ClientNameTextBox.Text.ToString();
+				NewClientsRow.address = ClientAddressTextBox.Text.ToString();
+				NewClientsRow.landLine = ClientLandLineTextBox.Text.ToString();
+				NewClientsRow.mobilePhone = ClientMobilePhoneTextBox.Text.ToString();
+				NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
+				NewClientsRow.email = ClientEmailTextBox.Text.ToString();
+				this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
+				this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
 			}
-
-			DataBaseDataSet.ClientsRow NewClientsRow;
-			NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
-			clientsTableAdapter.Insert(ClientNameTextBox.Text.ToString(), ClientAddressTextBox.Text.ToString(), ClientLandLineTextBox.Text.ToString(), 
-				ClientMobilePhoneTextBox.Text.ToString(), ClientBusinessNameTextBox.Text.ToString(), ClientEmailTextBox.Text.ToString());
-
-			this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
-			this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
+			else if (AddContractorRadioButton.Checked == true)
+			{
+				DataBaseDataSet.ContractorsRow NewContractorRow = dataBaseDataSet.Contractors.NewContractorsRow();
+				NewContractorRow.name = ContractorNameTextBox.Text.ToString();
+				NewContractorRow.address = ContractorAddressTextBox.Text.ToString();
+				NewContractorRow.landLine = ContractorLandLineTextBox.Text.ToString();
+				NewContractorRow.mobilePhone = ContractorMobilePhoneTextBox.Text.ToString();
+				NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
+				NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
+				this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
+				this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
+			}
+			else if (AddJobRadioButton.Checked == true)
+			{
+				DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
+				NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
+				NewJobRow.location = JobLocationTextBox.Text.ToString();
+				NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
+				NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
+				this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
+				this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
+			}
+			else
+			{
+				// write an exception message for users if no option is selected
+			}
         }
 	}
 }
