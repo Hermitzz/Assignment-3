@@ -149,8 +149,8 @@ namespace WindowsFormsApp2
 					NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
 					NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
 					this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
-					this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
-					dataBaseDataSet.AcceptChanges();
+				//	this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
+                    dataBaseDataSet.AcceptChanges();
 					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
 				}
 				else
