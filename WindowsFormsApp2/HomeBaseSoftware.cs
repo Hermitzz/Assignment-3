@@ -409,7 +409,7 @@ namespace WindowsFormsApp2
 												// inserting field values into the Clients table in the database using the dataAdapter
 												using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
 													"(clientId, name, address, landLine, mobilePhone, businessName, email) " +
-													"VALUES ('" + myArray[0] + "', '" +
+													"VALUES ('" +
 													myArray[1] + "', '" +
 													myArray[2] + "', '" +
 													myArray[3] + "', '" +
@@ -480,7 +480,7 @@ namespace WindowsFormsApp2
 												// inserting field values into the Clients table in the database using the dataAdapter
 												using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
 												"(ContractorId, name, address, landLine, mobilePhone, employeeId, email) " +
-												"VALUES ('" + myArray[0] +"', '" +
+												"VALUES ('" +
 												myArray[1] + "', '" +
 												myArray[2] + "', '" +
 												myArray[3] + "', '" +
@@ -551,7 +551,7 @@ namespace WindowsFormsApp2
 												// inserting field values into the Clients table in the database using the dataAdapter
 												using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
 												"(jobId, shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
-												"VALUES ('" + myArray[0] + "', '" +
+												"VALUES ('" +
 												myArray[1] + "', '" +
 												myArray[2] + "', '" +
 												myArray[3] + "', '" +
