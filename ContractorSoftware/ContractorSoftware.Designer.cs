@@ -214,6 +214,7 @@
 			this.UpdateButton.TabIndex = 52;
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
+			this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
 			// 
 			// JobDetailsGroupBox
 			// 

@@ -347,6 +347,37 @@ namespace ContractorSoftware
 			// to be implemented
 		}
 
+		private void UpdateButton_Click(object sender, EventArgs e)
+		{
+			// inserting field values into the Jobs table in the database using the dataAdapter
+			using (SqlCommand cmd = new SqlCommand("UPDATE Jobs " +
+				"SET shortDescription = " + JobShortDescriptionTextBox.Text + "amountCharged = " + AmountTextBox.Text + "jobCompleted = " + CompletionCheckBox.Checked +
+				"WHERE jobId = " + CurrentlySelectedRow.Cells[0].Value))
+			{
+				cmd.CommandType = CommandType.Text;
+				cmd.Connection = conn;
+				int a = cmd.ExecuteNonQuery();
+				if (a > 0)
+				{
+					GetData(dataAdapter.SelectCommand.CommandText);
+					dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+					JobShortDescriptionTextBox.Text = "";
+					JobLocationTextBox.Text = "";
+					JobDateTimePicker.Value = DateTime.Today;
+
+
+					MessageBox.Show("Record Successfully Added!");
+				}
+				else
+				{
+					MessageBox.Show("Adding Record Failed!");
+				}
+				conn.Close();
+			}
+
+		}
+
 		// below are tooltips to increase software usability
 		private void ImportButton_MouseHover(object sender, EventArgs e)
 		{
