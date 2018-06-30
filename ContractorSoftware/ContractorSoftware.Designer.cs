@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportButton = new System.Windows.Forms.Button();
             this.ClientDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -369,6 +370,8 @@
             this.JobDetailsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			this.PrintButton = new System.Windows.Forms.Button();
 			this.ExportButton = new System.Windows.Forms.Button();
 			this.ClientDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -386,8 +389,11 @@
 			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
 			this.UpdateButton = new System.Windows.Forms.Button();
 			this.JobDetailsGroupBox = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
 			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			this.JobPriorityTextBox = new System.Windows.Forms.TextBox();
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
@@ -399,6 +405,11 @@
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+>>>>>>> parent of 96aa473... small changes here and there
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -413,7 +424,10 @@
 			this.PrintButton.Text = "Print";
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+<<<<<<< HEAD
 			this.PrintButton.MouseHover += new System.EventHandler(this.PrintButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// ExportButton
 			// 
@@ -423,7 +437,10 @@
 			this.ExportButton.TabIndex = 54;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
 			this.ExportButton.MouseHover += new System.EventHandler(this.ExportButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// ClientDetailsGroupBox
 			// 
@@ -556,7 +573,10 @@
 			this.UpdateButton.TabIndex = 52;
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
 			this.UpdateButton.MouseHover += new System.EventHandler(this.UpdateButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// JobDetailsGroupBox
 			// 
@@ -579,6 +599,7 @@
 			this.JobDetailsGroupBox.TabStop = false;
 			this.JobDetailsGroupBox.Text = "Job Details";
 			// 
+<<<<<<< HEAD
 			// JobDateTimePicker
 			// 
 			this.JobDateTimePicker.Enabled = false;
@@ -596,6 +617,8 @@
 			this.JobDateAndTimeLabel.TabIndex = 35;
 			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// JobPriorityTextBox
 			// 
 			this.JobPriorityTextBox.Location = new System.Drawing.Point(159, 237);
@@ -619,7 +642,10 @@
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(100, 20);
 			this.AmountTextBox.TabIndex = 33;
+<<<<<<< HEAD
 			this.AmountTextBox.MouseHover += new System.EventHandler(this.AmountTextBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// label2
 			// 
@@ -656,7 +682,10 @@
 			this.CompletionCheckBox.TabIndex = 25;
 			this.CompletionCheckBox.Text = "Completed";
 			this.CompletionCheckBox.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
 			this.CompletionCheckBox.MouseHover += new System.EventHandler(this.CompletionCheckBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// JobShortDescriptionLabel
 			// 
@@ -674,7 +703,10 @@
 			this.JobShortDescriptionTextBox.Name = "JobShortDescriptionTextBox";
 			this.JobShortDescriptionTextBox.Size = new System.Drawing.Size(248, 106);
 			this.JobShortDescriptionTextBox.TabIndex = 23;
+<<<<<<< HEAD
 			this.JobShortDescriptionTextBox.MouseHover += new System.EventHandler(this.JobShortDescriptionTextBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// DataGridView
 			// 
@@ -693,7 +725,27 @@
 			this.ImportButton.TabIndex = 49;
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
 			this.ImportButton.MouseHover += new System.EventHandler(this.ImportButton_MouseHover);
+=======
+			// 
+			// JobDateTimePicker
+			// 
+			this.JobDateTimePicker.Enabled = false;
+			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
+			this.JobDateTimePicker.Name = "JobDateTimePicker";
+			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.JobDateTimePicker.TabIndex = 36;
+			// 
+			// JobDateAndTimeLabel
+			// 
+			this.JobDateAndTimeLabel.AutoSize = true;
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
+			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
+			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
+			this.JobDateAndTimeLabel.TabIndex = 35;
+			this.JobDateAndTimeLabel.Text = "Date/Time";
+>>>>>>> parent of 96aa473... small changes here and there
 			// 
 			// ContractorSoftware
 			// 
@@ -717,6 +769,10 @@
 			this.JobDetailsGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
 			this.ResumeLayout(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 96aa473... small changes here and there
         }
 
         #endregion
