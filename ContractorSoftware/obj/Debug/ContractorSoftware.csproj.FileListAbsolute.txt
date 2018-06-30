@@ -4,7 +4,6 @@ D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftw
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.exe
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.pdb
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csprojResolveAssemblyReference.cache
-D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.Form1.resources
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.Properties.Resources.resources
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.GenerateResource.Cache
 D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
@@ -16,9 +15,12 @@ C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\bi
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\bin\Debug\ContractorSoftware.exe
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\bin\Debug\ContractorSoftware.pdb
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.csprojResolveAssemblyReference.cache
-C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.Form1.resources
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.Properties.Resources.resources
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.GenerateResource.cache
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.exe
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.pdb
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.PrintForm.resources
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.ContractorSoftware.resources
+C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.ContractorSoftware.resources
+C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.PrintForm.resources
