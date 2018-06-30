@@ -81,9 +81,6 @@ namespace WindowsFormsApp2
 					conn.Open();
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
-                        MessageBox.Show("From: " + FromDatePicker.Value.ToShortDateString());
-                        MessageBox.Show("To: " + ToDatePicker.Value.ToShortDateString());
-
                         // getting Jobs between dates in from and to datepickers as well as jobs with the selected contractor id in the ContractorComboBox
                         using (SqlCommand cmd = new SqlCommand(@"SELECT * FROM Jobs WHERE dateAndTime >= '" + FromDatePicker.Value.ToShortDateString() + @"' AND dateAndTime <= '" + ToDatePicker.Value.ToShortDateString() + @"' AND " +
                         	"ContractorId = " + ContractorComboBox.Text.ToString()))
@@ -114,35 +111,188 @@ namespace WindowsFormsApp2
 		private void ExportFunction(SqlDataReader results)
 		{
             // here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
-            StringBuilder sb = new StringBuilder();
-            StreamWriter sw = new StreamWriter(System.IO.Directory.GetCurrentDirectory() + "testfile.csv");
-
-            //get columns
-            var columnNames = Enumerable.Range(0, results.FieldCount)
-                .Select(results.GetName)
-                .ToList();
-
-            //headers
-            sb.Append(string.Join(",", columnNames));
-            sb.AppendLine();
-            while (results.Read())
+            //export job records
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
             {
-                
-                var values = Enumerable.Range(0, results.FieldCount)
-                .Select(results.GetValue)
-                .ToList();
+                sfd.Title = "Export Jobs";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var sw = new StreamWriter(sfd.FileName))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        //get columns
+                        var columnNames = Enumerable.Range(0, results.FieldCount)
+                            .Select(results.GetName)
+                            .ToList();
 
-                sb.Append(string.Join(",", values));
-                sb.AppendLine();
-                
+                        //headers
+                        sb.Append(string.Join(",", columnNames));
+                        sb.AppendLine();
+                        while (results.Read())
+                        {
+
+                            var values = Enumerable.Range(0, results.FieldCount)
+                            .Select(results.GetValue)
+                            .ToList();
+
+                            sb.Append(string.Join(",", values));
+                            sb.AppendLine();
+                        }
+                        sw.Write(sb.ToString());
+                        sw.Close();
+                    }
+
+                    MessageBox.Show("Export Success!.");
+                }
+
             }
-
-            MessageBox.Show(sb.ToString());
-
-            sw.Write(sb.ToString());
-            sw.Close();
             conn.Close();
-            MessageBox.Show("Export Success!.");
+
+            ExportClients();
+            ExportContractors();
+
+               
 		}
+
+        private void ExportClients()
+        {
+            SqlDataReader results;
+
+            using (conn = new SqlConnection(csb.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open) // if connection.Open was successful
+                    {
+                        using (SqlCommand cmd = new SqlCommand(@"SELECT * FROM Clients"))
+                        {
+                            // establishing connection and making reader to read returned data from query
+                            cmd.Connection = conn;
+                            results = cmd.ExecuteReader();
+                        }
+
+                        using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+                        {
+                            sfd.Title = "Export Clients";
+                            if (sfd.ShowDialog() == DialogResult.OK)
+                            {
+                                using (var sw = new StreamWriter(sfd.FileName))
+                                {
+                                    StringBuilder sb = new StringBuilder();
+                                    //get columns
+                                    var columnNames = Enumerable.Range(0, results.FieldCount)
+                                        .Select(results.GetName)
+                                        .ToList();
+
+                                    //headers
+                                    sb.Append(string.Join(",", columnNames));
+                                    sb.AppendLine();
+                                    while (results.Read())
+                                    {
+
+                                        var values = Enumerable.Range(0, results.FieldCount)
+                                        .Select(results.GetValue)
+                                        .ToList();
+
+                                        sb.Append(string.Join(",", values));
+                                        sb.AppendLine();
+                                    }
+                                    sw.Write(sb.ToString());
+                                    sw.Close();
+                                }
+                                conn.Close();
+                                MessageBox.Show("Export Success!.");
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection failed.");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void ExportContractors()
+        {
+            SqlDataReader results;
+
+            using (conn = new SqlConnection(csb.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open) // if connection.Open was successful
+                    {
+                        using (SqlCommand cmd = new SqlCommand(@"SELECT * FROM Contractors"))
+                        {
+                            // establishing connection and making reader to read returned data from query
+                            cmd.Connection = conn;
+                            results = cmd.ExecuteReader();
+                        }
+
+                        using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+                        {
+                            sfd.Title = "Export Contractors";
+                            if (sfd.ShowDialog() == DialogResult.OK)
+                            {
+                                using (var sw = new StreamWriter(sfd.FileName))
+                                {
+                                    StringBuilder sb = new StringBuilder();
+                                    //get columns
+                                    var columnNames = Enumerable.Range(0, results.FieldCount)
+                                        .Select(results.GetName)
+                                        .ToList();
+
+                                    //headers
+                                    sb.Append(string.Join(",", columnNames));
+                                    sb.AppendLine();
+                                    while (results.Read())
+                                    {
+
+                                        var values = Enumerable.Range(0, results.FieldCount)
+                                        .Select(results.GetValue)
+                                        .ToList();
+
+                                        sb.Append(string.Join(",", values));
+                                        sb.AppendLine();
+                                    }
+                                    sw.Write(sb.ToString());
+                                    sw.Close();
+                                }
+                                conn.Close();
+                                MessageBox.Show("Export Success!.");
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection failed.");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        // below are tooltips for software usability
+        private void ContractorComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Choose from available contractors using ContractorId");
+		}
+
+
 	}
 }
