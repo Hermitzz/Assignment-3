@@ -54,6 +54,7 @@
 			this.ContractorNameLabel = new System.Windows.Forms.Label();
 			this.ContractorAddressLabel = new System.Windows.Forms.Label();
 			this.AddJobGroupBox = new System.Windows.Forms.GroupBox();
+			this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.ClientIDTextBox = new System.Windows.Forms.TextBox();
 			this.ClientIDLabel = new System.Windows.Forms.Label();
 			this.JobPriorityComboBox = new System.Windows.Forms.ComboBox();
@@ -82,7 +83,6 @@
 			this.contractorsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.ContractorsTableAdapter();
 			this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.jobsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.JobsTableAdapter();
-			this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
 			this.AddClientGroupBox.SuspendLayout();
 			this.AddContractorGroupBox.SuspendLayout();
@@ -161,6 +161,7 @@
 			this.ClientLandLineTextBox.Name = "ClientLandLineTextBox";
 			this.ClientLandLineTextBox.Size = new System.Drawing.Size(100, 20);
 			this.ClientLandLineTextBox.TabIndex = 9;
+			this.ClientLandLineTextBox.MouseHover += new System.EventHandler(this.ClientLandLineTextBox_MouseHover);
 			// 
 			// ClientMobilePhoneTextBox
 			// 
@@ -189,6 +190,7 @@
 			this.ClientBusinessNameTextBox.Name = "ClientBusinessNameTextBox";
 			this.ClientBusinessNameTextBox.Size = new System.Drawing.Size(100, 20);
 			this.ClientBusinessNameTextBox.TabIndex = 24;
+			this.ClientBusinessNameTextBox.MouseHover += new System.EventHandler(this.ClientBusinessNameTextBox_MouseHover);
 			// 
 			// AddClientRadioButton
 			// 
@@ -202,6 +204,7 @@
 			this.AddClientRadioButton.UseVisualStyleBackColor = true;
 			this.AddClientRadioButton.CheckedChanged += new System.EventHandler(this.AddClientRadioButton_CheckedChanged);
 			this.AddClientRadioButton.Click += new System.EventHandler(this.AddClientRadioButton_CheckedChanged);
+			this.AddClientRadioButton.MouseHover += new System.EventHandler(this.AddClientRadioButton_MouseHover);
 			// 
 			// AddContractorRadioButton
 			// 
@@ -215,6 +218,7 @@
 			this.AddContractorRadioButton.UseVisualStyleBackColor = true;
 			this.AddContractorRadioButton.CheckedChanged += new System.EventHandler(this.AddContractorRadioButton_CheckedChanged);
 			this.AddContractorRadioButton.Click += new System.EventHandler(this.AddContractorRadioButton_CheckedChanged);
+			this.AddContractorRadioButton.MouseHover += new System.EventHandler(this.AddContractorRadioButton_MouseHover);
 			// 
 			// DataGridView
 			// 
@@ -238,6 +242,7 @@
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
 			this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+			this.ImportButton.MouseHover += new System.EventHandler(this.ImportButton_MouseHover);
 			// 
 			// ExportButton
 			// 
@@ -249,6 +254,7 @@
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
 			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+			this.ExportButton.MouseHover += new System.EventHandler(this.ExportButton_MouseHover);
 			// 
 			// AssignJobButton
 			// 
@@ -260,6 +266,7 @@
 			this.AssignJobButton.Text = "Assign Job";
 			this.AssignJobButton.UseVisualStyleBackColor = true;
 			this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
+			this.AssignJobButton.MouseHover += new System.EventHandler(this.AssignJobButton_MouseHover);
 			// 
 			// AddButton
 			// 
@@ -271,6 +278,7 @@
 			this.AddButton.Text = "Add";
 			this.AddButton.UseVisualStyleBackColor = true;
 			this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+			this.AddButton.MouseHover += new System.EventHandler(this.AddButton_MouseHover);
 			// 
 			// AddClientGroupBox
 			// 
@@ -354,12 +362,20 @@
 			this.AddJobGroupBox.TabStop = false;
 			this.AddJobGroupBox.Text = "Add Job";
 			// 
+			// DateTimePicker
+			// 
+			this.DateTimePicker.Location = new System.Drawing.Point(73, 212);
+			this.DateTimePicker.Name = "DateTimePicker";
+			this.DateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.DateTimePicker.TabIndex = 28;
+			// 
 			// ClientIDTextBox
 			// 
 			this.ClientIDTextBox.Location = new System.Drawing.Point(154, 24);
 			this.ClientIDTextBox.Name = "ClientIDTextBox";
 			this.ClientIDTextBox.Size = new System.Drawing.Size(100, 20);
 			this.ClientIDTextBox.TabIndex = 27;
+			this.ClientIDTextBox.MouseHover += new System.EventHandler(this.ClientIDTextBox_MouseHover);
 			// 
 			// ClientIDLabel
 			// 
@@ -383,6 +399,7 @@
 			this.JobPriorityComboBox.Name = "JobPriorityComboBox";
 			this.JobPriorityComboBox.Size = new System.Drawing.Size(100, 21);
 			this.JobPriorityComboBox.TabIndex = 25;
+			this.JobPriorityComboBox.MouseHover += new System.EventHandler(this.JobPriorityComboBox_MouseHover);
 			// 
 			// JobShortDescriptionLabel
 			// 
@@ -484,6 +501,7 @@
 			this.ContractorLandLineTextBox.Name = "ContractorLandLineTextBox";
 			this.ContractorLandLineTextBox.Size = new System.Drawing.Size(100, 20);
 			this.ContractorLandLineTextBox.TabIndex = 9;
+			this.ContractorLandLineTextBox.MouseHover += new System.EventHandler(this.ContractorLandLineTextBox_MouseHover);
 			// 
 			// ContractorMobilePhoneTextBox
 			// 
@@ -505,6 +523,7 @@
 			this.ContractorEmployeeIdTextBox.Name = "ContractorEmployeeIdTextBox";
 			this.ContractorEmployeeIdTextBox.Size = new System.Drawing.Size(100, 20);
 			this.ContractorEmployeeIdTextBox.TabIndex = 24;
+			this.ContractorEmployeeIdTextBox.MouseHover += new System.EventHandler(this.ContractorEmployeeIdTextBox_MouseHover);
 			// 
 			// ContractorNameTextBox
 			// 
@@ -524,6 +543,7 @@
 			this.AddJobRadioButton.Text = "Add Job";
 			this.AddJobRadioButton.UseVisualStyleBackColor = true;
 			this.AddJobRadioButton.Click += new System.EventHandler(this.AddJobRadioButton_CheckedChanged);
+			this.AddJobRadioButton.MouseHover += new System.EventHandler(this.AddJobRadioButton_MouseHover);
 			// 
 			// dataBaseDataSet
 			// 
@@ -561,13 +581,6 @@
 			// jobsTableAdapter
 			// 
 			this.jobsTableAdapter.ClearBeforeFill = true;
-			// 
-			// DateTimePicker
-			// 
-			this.DateTimePicker.Location = new System.Drawing.Point(73, 212);
-			this.DateTimePicker.Name = "DateTimePicker";
-			this.DateTimePicker.Size = new System.Drawing.Size(182, 20);
-			this.DateTimePicker.TabIndex = 28;
 			// 
 			// HomeBaseForm
 			// 

@@ -345,5 +345,86 @@ namespace WindowsFormsApp2
         {
 			// still have to complete
         }
+
+		// below are tooltips used to increase software usability
+
+
+		private void AssignJobButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AssignJobButton, "Assign Contractors to Jobs");
+		}
+
+		private void ImportButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ImportButton, "Import and merge records from Contractor Software");
+		}
+
+		private void ExportButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ExportButton, "Export Selected Job Records for a specified Contractor");
+		}
+
+		private void AddButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddButton, "Adds data from current form fields to the DataBase and View");
+		}
+
+		private void ClientIDTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientIDTextBox, "ID number of the Client requesting the job");
+		}
+
+		private void JobPriorityComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(JobPriorityComboBox, "Job priority rated 1-5. 1 is lowest, 5 the highest");
+		}
+
+		private void ContractorLandLineTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorLandLineTextBox, "The Landline phone number of the contractor");
+		}
+
+		private void ContractorEmployeeIdTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorEmployeeIdTextBox, "The organisational employee ID set by IQ Incorperated");
+		}
+
+		private void ClientLandLineTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientLandLineTextBox, "The Landline phone number of the client");
+		}
+
+		private void ClientBusinessNameTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientBusinessNameTextBox, "The name of the client business");
+		}
+
+		private void AddClientRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddClientRadioButton, "Add a client to the DataBase");
+		}
+
+		private void AddContractorRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddContractorRadioButton, "Add a contractor to the DataBase");
+		}
+
+		private void AddJobRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddJobRadioButton, "Add a job to the DataBase");
+		}
 	}
 }
