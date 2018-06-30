@@ -27,9 +27,9 @@ namespace WindowsFormsApp2
 		private void AssignJobForm_Load(object sender, EventArgs e)
 		{
 			// TODO: This line of code loads data into the 'dataBaseDataSet1.Jobs' table. You can move, or remove it, as needed.
-			this.jobsTableAdapter1.Fill(this.dataBaseDataSet1.Jobs);
+			this.jobsTableAdapter1.Fill(this.dataBaseDataSet.Jobs);
 			// TODO: This line of code loads data into the 'dataBaseDataSet1.Contractors' table. You can move, or remove it, as needed.
-			this.contractorsTableAdapter1.Fill(this.dataBaseDataSet1.Contractors);
+			this.contractorsTableAdapter1.Fill(this.dataBaseDataSet.Contractors);
 			ComboBox.ObjectCollection NewItems = new ComboBox.ObjectCollection(ContractorComboBox);
 			DataTable results = contractorsTableAdapter.SelectContractors();
 			for (int Index = 0; Index < results.Rows.Count; Index++)
@@ -41,19 +41,6 @@ namespace WindowsFormsApp2
 			{
 				ContractorComboBox.Items.Add(obj);
 			}
-		}
-
-		private void selectContractorToolStripButton_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				this.contractorsTableAdapter1.SelectContractor(this.dataBaseDataSet1.Contractors);
-			}
-			catch (System.Exception ex)
-			{
-				System.Windows.Forms.MessageBox.Show(ex.Message);
-			}
-
 		}
 
 		private void AssignButton_Click(object sender, EventArgs e)

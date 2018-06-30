@@ -33,8 +33,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.ContractorIDLabel = new System.Windows.Forms.Label();
-			this.ContractorIDTextBox = new System.Windows.Forms.TextBox();
 			this.ExportButton = new System.Windows.Forms.Button();
+			this.ContractorComboBox = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// FromDatePicker
@@ -77,16 +77,9 @@
 			this.ContractorIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ContractorIDLabel.Location = new System.Drawing.Point(12, 9);
 			this.ContractorIDLabel.Name = "ContractorIDLabel";
-			this.ContractorIDLabel.Size = new System.Drawing.Size(144, 25);
+			this.ContractorIDLabel.Size = new System.Drawing.Size(118, 25);
 			this.ContractorIDLabel.TabIndex = 4;
-			this.ContractorIDLabel.Text = "Contractor ID:";
-			// 
-			// ContractorIDTextBox
-			// 
-			this.ContractorIDTextBox.Location = new System.Drawing.Point(162, 12);
-			this.ContractorIDTextBox.Name = "ContractorIDTextBox";
-			this.ContractorIDTextBox.Size = new System.Drawing.Size(100, 20);
-			this.ContractorIDTextBox.TabIndex = 5;
+			this.ContractorIDLabel.Text = "Contractor:";
 			// 
 			// ExportButton
 			// 
@@ -99,13 +92,21 @@
 			this.ExportButton.UseVisualStyleBackColor = true;
 			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
+			// ContractorComboBox
+			// 
+			this.ContractorComboBox.FormattingEnabled = true;
+			this.ContractorComboBox.Location = new System.Drawing.Point(136, 12);
+			this.ContractorComboBox.Name = "ContractorComboBox";
+			this.ContractorComboBox.Size = new System.Drawing.Size(121, 21);
+			this.ContractorComboBox.TabIndex = 7;
+			// 
 			// Export
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(561, 136);
+			this.Controls.Add(this.ContractorComboBox);
 			this.Controls.Add(this.ExportButton);
-			this.Controls.Add(this.ContractorIDTextBox);
 			this.Controls.Add(this.ContractorIDLabel);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -113,6 +114,7 @@
 			this.Controls.Add(this.FromDatePicker);
 			this.Name = "Export";
 			this.Text = "Export";
+			this.Load += new System.EventHandler(this.Export_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -125,7 +127,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label ContractorIDLabel;
-		private System.Windows.Forms.TextBox ContractorIDTextBox;
 		private System.Windows.Forms.Button ExportButton;
+		private System.Windows.Forms.ComboBox ContractorComboBox;
 	}
 }

@@ -195,7 +195,8 @@ namespace WindowsFormsApp2
 
 		private void ExportButton_Click(object sender, EventArgs e)
 		{
-			Export();
+			Export exportForm = new Export();
+			exportForm.Show();
 		}
 
 		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports
