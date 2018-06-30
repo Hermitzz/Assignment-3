@@ -33,12 +33,14 @@ namespace WindowsFormsApp2
 
 		private void Form1_Load_1(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'dataBaseDataSet.Jobs' table. You can move, or remove it, as needed.
+			/*
+            // TODO: This line of code loads data into the 'dataBaseDataSet.Jobs' table. You can move, or remove it, as needed.
 			this.jobsTableAdapter.Fill(this.dataBaseDataSet.Jobs);
 			// TODO: This line of code loads data into the 'dataBaseDataSet.Contractors' table. You can move, or remove it, as needed.
 			this.contractorsTableAdapter.Fill(this.dataBaseDataSet.Contractors);
 			// TODO: This line of code loads data into the 'dataBaseDataSet.Clients' table. You can move, or remove it, as needed.
 			this.clientsTableAdapter.Fill(this.dataBaseDataSet.Clients);
+            */
 
 			// setting initial GroupBox visibility
 			AddClientGroupBox.Visible = false;
@@ -247,13 +249,13 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Jobs table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
-                                    "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
+                                    "(shortDescription, location, dateAndTime, priority, clientId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
                                     DateTimePicker.Value + "', '" +
                                     JobPriorityComboBox.Text + "', '" +
                                     ClientIDTextBox.Text + "', '" +
-                                    "2" + "', '" +
+                                    //"2" + "', '" +
                                     "" + "', '" +
                                     0 + "')"))
                                 {
