@@ -260,6 +260,7 @@
 			this.AssignJobButton.TabIndex = 31;
 			this.AssignJobButton.Text = "Assign Job";
 			this.AssignJobButton.UseVisualStyleBackColor = true;
+			this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
 			// 
 			// AddButton
 			// 

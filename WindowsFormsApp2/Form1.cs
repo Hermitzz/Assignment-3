@@ -206,5 +206,11 @@ namespace WindowsFormsApp2
 				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
+
+		private void AssignJobButton_Click(object sender, EventArgs e)
+		{
+			AssignJobForm newAssignmentForm = new AssignJobForm();
+			newAssignmentForm.ShowDialog();
+		}
 	}
 }
