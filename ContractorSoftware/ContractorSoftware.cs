@@ -114,6 +114,234 @@ namespace ContractorSoftware
 			}
 		}
 
+		private void ImportButton_Click(object sender, EventArgs e)
+		{
+			using (var fbd = new FolderBrowserDialog())
+			{
+				DialogResult result = fbd.ShowDialog();
+
+				//if user selects a folder
+				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+				{
+					//get all files inside the folder
+					string[] files = Directory.GetFiles(fbd.SelectedPath);
+
+					//iterate through all files
+					foreach (String file in files)
+					{
+						//if it's a csv file
+						if (file.Contains(".csv"))
+						{
+							if (file.Contains("client"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
+													"(name, address, landLine, mobilePhone, businessName, email) " +
+													"VALUES ('" +
+													myArray[1] + "', '" +
+													myArray[2] + "', '" +
+													myArray[3] + "', '" +
+													myArray[4] + "', '" +
+													myArray[5] + "', '" +
+													myArray[6] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+														ClientNameTextBox.Text = "";
+														ClientAddressTextBox.Text = "";
+														ClientLandLineTextBox.Text = "";
+														ClientMobilePhoneTextBox.Text = "";
+														ClientBusinessNameTextBox.Text = "";
+														ClientEmailTextBox.Text = "";
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+							else if (file.Contains("contractor"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
+												"(name, address, landLine, mobilePhone, employeeId, email) " +
+												"VALUES ('" +
+												myArray[1] + "', '" +
+												myArray[2] + "', '" +
+												myArray[3] + "', '" +
+												myArray[4] + "', '" +
+												myArray[5] + "', '" +
+												myArray[6] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+							else if (file.Contains("job"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
+												"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
+												"VALUES ('" +
+												myArray[1] + "', '" +
+												myArray[2] + "', '" +
+												myArray[3] + "', '" +
+												myArray[4] + "', '" +
+												myArray[5] + "', '" +
+												myArray[6] + "', '" +
+												myArray[7] + "', '" +
+												myArray[8] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+														JobShortDescriptionTextBox.Text = "";
+														JobLocationTextBox.Text = "";
+														JobDateTimePicker.Value = DateTime.Today;
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// below are tooltips to increase software usability
 		private void ImportButton_MouseHover(object sender, EventArgs e)
 		{
