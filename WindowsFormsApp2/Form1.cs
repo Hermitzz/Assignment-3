@@ -120,41 +120,67 @@ namespace WindowsFormsApp2
         {
 			if (AddClientRadioButton.Checked == true)
 			{
-				DataBaseDataSet.ClientsRow NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
-				NewClientsRow.name = ClientNameTextBox.Text.ToString();
-				NewClientsRow.address = ClientAddressTextBox.Text.ToString();
-				NewClientsRow.landLine = ClientLandLineTextBox.Text.ToString();
-				NewClientsRow.mobilePhone = ClientMobilePhoneTextBox.Text.ToString();
-				NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
-				NewClientsRow.email = ClientEmailTextBox.Text.ToString();
-				this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
-				this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
+				if (ClientNameTextBox.ToString().Trim().Length != 0 && ClientAddressTextBox.ToString().Trim().Length != 0 && ClientLandLineTextBox.ToString().Trim().Length != 0 &&
+					ClientMobilePhoneTextBox.ToString().Trim().Length != 0 && ClientBusinessNameTextBox.ToString().Trim().Length != 0 && ClientEmailTextBox.ToString().Trim().Length != 0)
+				{
+					DataBaseDataSet.ClientsRow NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
+					NewClientsRow.name = ClientNameTextBox.Text.ToString();
+					NewClientsRow.address = ClientAddressTextBox.Text.ToString();
+					NewClientsRow.landLine = ClientLandLineTextBox.Text.ToString();
+					NewClientsRow.mobilePhone = ClientMobilePhoneTextBox.Text.ToString();
+					NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
+					NewClientsRow.email = ClientEmailTextBox.Text.ToString();
+					this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
+					this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
+					dataBaseDataSet.AcceptChanges();
+				}
+				else
+				{
+					MessageBox.Show("Cannot add clients with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 			}
 			else if (AddContractorRadioButton.Checked == true)
 			{
-				DataBaseDataSet.ContractorsRow NewContractorRow = dataBaseDataSet.Contractors.NewContractorsRow();
-				NewContractorRow.name = ContractorNameTextBox.Text.ToString();
-				NewContractorRow.address = ContractorAddressTextBox.Text.ToString();
-				NewContractorRow.landLine = ContractorLandLineTextBox.Text.ToString();
-				NewContractorRow.mobilePhone = ContractorMobilePhoneTextBox.Text.ToString();
-				NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
-				NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
-				this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
-				this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
+				if (ContractorNameTextBox.ToString().Trim().Length != 0 && ContractorAddressTextBox.ToString().Trim().Length != 0 && ContractorLandLineTextBox.ToString().Trim().Length != 0 &&
+					ContractorMobilePhoneTextBox.ToString().Trim().Length != 0 && ContractorEmployeeIdTextBox.ToString().Trim().Length != 0 && ContractorEmailTextBox.ToString().Trim().Length != 0)
+				{
+					DataBaseDataSet.ContractorsRow NewContractorRow = dataBaseDataSet.Contractors.NewContractorsRow();
+					NewContractorRow.name = ContractorNameTextBox.Text.ToString();
+					NewContractorRow.address = ContractorAddressTextBox.Text.ToString();
+					NewContractorRow.landLine = ContractorLandLineTextBox.Text.ToString();
+					NewContractorRow.mobilePhone = ContractorMobilePhoneTextBox.Text.ToString();
+					NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
+					NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
+					this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
+					this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
+					dataBaseDataSet.AcceptChanges();
+				}
+				else
+				{
+					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 			}
 			else if (AddJobRadioButton.Checked == true)
 			{
-				DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
-				NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
-				NewJobRow.location = JobLocationTextBox.Text.ToString();
-				NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
-				NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
-				this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
-				this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
+				if (JobLocationTextBox.ToString().Trim().Length != 0 && JobDateTimeTextBox.ToString().Trim().Length != 0)
+				{
+					DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
+					NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
+					NewJobRow.location = JobLocationTextBox.Text.ToString();
+					NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
+					NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
+					this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
+					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
+					dataBaseDataSet.AcceptChanges();
+				}
+				else
+				{
+					MessageBox.Show("Cannot add jobs without location and date + time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 			}
 			else
 			{
-				// write an exception message for users if no option is selected
+				MessageBox.Show("No add option selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
         }
 
