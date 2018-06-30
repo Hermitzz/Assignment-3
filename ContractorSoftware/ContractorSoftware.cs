@@ -15,15 +15,19 @@ namespace ContractorSoftware
 {
     public partial class ContractorSoftware : Form
     {
-
+		// variables for sql connection
         private SqlConnection conn;
         private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
         private BindingSource bindingSource1 = new BindingSource();
         private SqlDataAdapter dataAdapter = new SqlDataAdapter();
 
-        public ContractorSoftware()
+		// keeps track of the currently selected row in the DataGridView using cell click
+		DataGridViewRow CurrentlySelectedRow;
+
+		public ContractorSoftware()
         {
             InitializeComponent();
+			// setting connection string
             string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "ContractorDataBase.mdf");
             string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
                                 filePath + @"; Integrated Security = True";
@@ -32,12 +36,11 @@ namespace ContractorSoftware
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			// setting the datasource for the DataGridView to the jobs table in the database
             DataGridView.DataSource = bindingSource1;
             GetData("SELECT * from Jobs");
 
         }
-
-
 
         private void GetData(string selectCommand)
         {
@@ -65,12 +68,11 @@ namespace ContractorSoftware
             }
             catch (SqlException)
             {
-                MessageBox.Show("To run this example, replace the value of the " +
-                    "connectionString variable with a connection string that is " +
-                    "valid for your system.");
+                MessageBox.Show("SqlException");
             }
         }
 
+		// opens a new form holding the required invoice information which uses graphics to print a copy of said new form
         private void PrintButton_Click(object sender, EventArgs e)
 		{
             PrintForm printForm = new PrintForm(JobShortDescriptionTextBox.Text, ClientNameTextBox.Text, ClientAddressTextBox.Text,
@@ -79,8 +81,7 @@ namespace ContractorSoftware
             printForm.Show();
         }
 
-        DataGridViewRow CurrentlySelectedRow;
-
+		// sets the CurrentlySelectedRow and fills the form fields with the data from the selected row.
         private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != DataGridView.TopLeftHeaderCell.RowIndex)
@@ -110,12 +111,7 @@ namespace ContractorSoftware
                 {
                     CompletionCheckBox.Checked = true;
                 }
-
-
-
-
             }
         }
-       
     }
 }

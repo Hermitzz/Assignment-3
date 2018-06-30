@@ -14,7 +14,7 @@ namespace WindowsFormsApp2
 {
     public partial class HomeBaseForm : Form
     {
-
+		// variables for sql connections
         private SqlConnection conn;
         private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
         private BindingSource bindingSource1 = new BindingSource();
@@ -23,6 +23,7 @@ namespace WindowsFormsApp2
         public HomeBaseForm()
         {
             InitializeComponent();
+			// setting connection string
             string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "DataBase.mdf");
             string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
                                 filePath + @"; Integrated Security = True";
@@ -38,45 +39,55 @@ namespace WindowsFormsApp2
 			this.contractorsTableAdapter.Fill(this.dataBaseDataSet.Contractors);
 			// TODO: This line of code loads data into the 'dataBaseDataSet.Clients' table. You can move, or remove it, as needed.
 			this.clientsTableAdapter.Fill(this.dataBaseDataSet.Clients);
+
+			// setting initial GroupBox visibility
 			AddClientGroupBox.Visible = false;
 			AddContractorGroupBox.Visible = false;
+			AddJobGroupBox.Visible = false;
+
+			// setting initial parents and locations for child groupboxes of ClientGroupBox
 			AddContractorGroupBox.Parent = AddClientGroupBox.Parent;
 			AddContractorGroupBox.Location = AddClientGroupBox.Location;
-			AddJobGroupBox.Visible = false;
 			AddJobGroupBox.Parent = AddClientGroupBox.Parent;
 			AddJobGroupBox.Location = AddClientGroupBox.Location;
+
+			// setting JobPriorityComboBox default to 0
 			JobPriorityComboBox.SelectedIndex = 0;
 
         }
 
-		// makes the selected groupbox visible and the others invisible
+		// makes the selected groupbox visible and the others invisible as well as setting the DataGridView datasource to the selected option
 		private void AddClientRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+			// checking if this radio button is checked
             if (AddClientRadioButton.Checked == true)
             {
+				// making selected GroupBox visible and bringing it to front whilst making unselected GroupBoxes invisible
                 AddClientGroupBox.Visible = true;
 				AddClientGroupBox.BringToFront();
                 AddJobGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-
-                DataGridView.DataSource = bindingSource1;
+				// changing datagridview datasource to the selected option
+				DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Clients");
 
             }
         }
 
-        private void AddContractorRadioButton_CheckedChanged(object sender, EventArgs e)
+		// makes the selected groupbox visible and the others invisible as well as setting the DataGridView datasource to the selected option
+		private void AddContractorRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (AddContractorRadioButton.Checked == true)
+			// checking if this radio button is checked
+			if (AddContractorRadioButton.Checked == true)
             {
-                AddContractorGroupBox.Visible = true;
+				// making selected GroupBox visible and bringing it to front whilst making unselected GroupBoxes invisible
+				AddContractorGroupBox.Visible = true;
 				AddClientGroupBox.BringToFront();
 				AddJobGroupBox.Visible = false;
                 AddClientGroupBox.Visible = false;
 
-
+				// changing datagridview datasource to the selected option
                 DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Contractors");
 
@@ -84,16 +95,20 @@ namespace WindowsFormsApp2
 
         }
 
-        private void AddJobRadioButton_CheckedChanged(object sender, EventArgs e)
+		// makes the selected groupbox visible and the others invisible as well as setting the DataGridView datasource to the selected option
+		private void AddJobRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (AddJobRadioButton.Checked == true)
+			// checking if this radio button is checked
+			if (AddJobRadioButton.Checked == true)
             {
-                AddJobGroupBox.Visible = true;
+				// making selected GroupBox visible and bringing it to front whilst making unselected GroupBoxes invisible
+				AddJobGroupBox.Visible = true;
 				AddClientGroupBox.BringToFront();
 				AddClientGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-                DataGridView.DataSource = bindingSource1;
+				// changing datagridview datasource to the selected option
+				DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Jobs");
 
             }
@@ -103,8 +118,10 @@ namespace WindowsFormsApp2
 		// checks which option is currently selected and adds data from the fields to the database.
 		private void AddButton_Click(object sender, EventArgs e)
         {
+			// checking if this radio button is checked
 			if (AddClientRadioButton.Checked == true)
 			{
+				// checking for empty fields
 				if (ClientNameTextBox.Text.Trim() != "" && ClientAddressTextBox.Text.Trim() != "" && ClientLandLineTextBox.Text.Trim() != "" &&
 					ClientMobilePhoneTextBox.Text.Trim() != "" && ClientBusinessNameTextBox.Text.Trim() != "" && ClientEmailTextBox.Text.Trim() != "")
 				{
@@ -115,6 +132,7 @@ namespace WindowsFormsApp2
                             conn.Open();
                             if (conn.State == ConnectionState.Open) // if connection.Open was successful
                             {
+								// inserting field values into the Clients table in the database using the dataAdapter
                                 using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
                                     "(name, address, landLine, mobilePhone, businessName, email) " +
                                     "VALUES ('" + ClientNameTextBox.Text + "', '" +
@@ -156,8 +174,10 @@ namespace WindowsFormsApp2
 					MessageBox.Show("Cannot add clients with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
+			// checking if this radio button is checked
 			else if (AddContractorRadioButton.Checked == true)
 			{
+				// checking for empty fields
 				if (ContractorNameTextBox.Text.Trim() != "" && ContractorAddressTextBox.Text.Trim() != "" && ContractorLandLineTextBox.Text.Trim() != "" &&
 					ContractorMobilePhoneTextBox.Text.Trim() != "" && ContractorEmployeeIdTextBox.Text.Trim() != "" && ContractorEmailTextBox.Text.Trim() != "")
 				{
@@ -168,7 +188,8 @@ namespace WindowsFormsApp2
                             conn.Open();
                             if (conn.State == ConnectionState.Open) // if connection.Open was successful
                             {
-                                using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
+								// inserting field values into the Contractors table in the database using the dataAdapter
+								using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
                                     "(name, address, landLine, mobilePhone, employeeId, email) " +
                                     "VALUES ('" + ContractorNameTextBox.Text + "', '" +
                                     ContractorAddressTextBox.Text + "', '" +
@@ -211,8 +232,10 @@ namespace WindowsFormsApp2
 					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
+			// checking if this radio button is checked
 			else if (AddJobRadioButton.Checked == true)
 			{
+				// checking for empty fields, except for the shortdescription and other areas such as amountCharged which are set by contractors later
 				if (JobLocationTextBox.Text.Trim() != "" && JobDateTimeTextBox.Text.Trim() != "")
 				{
                     using (conn = new SqlConnection(csb.ConnectionString))
@@ -222,7 +245,8 @@ namespace WindowsFormsApp2
                             conn.Open();
                             if (conn.State == ConnectionState.Open) // if connection.Open was successful
                             {
-                                using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
+								// inserting field values into the Jobs table in the database using the dataAdapter
+								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
                                     "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
@@ -274,51 +298,14 @@ namespace WindowsFormsApp2
 
 		private void ExportButton_Click(object sender, EventArgs e)
 		{
+			// creates an exportForm which handles the exporting function
 			Export exportForm = new Export();
 			exportForm.Show();
 		}
 
-		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports
-		// whatever data is in the datagridview right now. Well its supposed to but there is a problem with the path.
-		private void Export()
-		{
-
-			if (DataGridView.Rows.Count != 0)
-			{
-
-				//put data grid view into csv
-				var StringBuilder = new StringBuilder();
-
-
-				foreach (DataGridViewRow row in DataGridView.Rows)
-				{
-					foreach (DataGridViewCell cell in row.Cells)
-					{
-						StringBuilder.Append(cell.Value.ToString() + ",");
-					}
-					StringBuilder.AppendLine();
-				}
-
-				//current directory
-				string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-
-				TextWriter textWrite = new StreamWriter(exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text);
-
-
-				textWrite.Write(StringBuilder.ToString());
-				textWrite.Close();
-
-				MessageBox.Show("Your data has been exported to " + exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
-				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-		}
-
-
 		private void AssignJobButton_Click(object sender, EventArgs e)
 		{
+			// creates a AssignJobForm which handles adding selected contractorIds to the selected jobs
 			AssignJobForm newAssignmentForm = new AssignJobForm();
 			newAssignmentForm.ShowDialog();
 		}
@@ -349,15 +336,14 @@ namespace WindowsFormsApp2
             }
             catch (SqlException)
             {
-                MessageBox.Show("To run this example, replace the value of the " +
-                    "connectionString variable with a connection string that is " +
-                    "valid for your system.");
+                MessageBox.Show("sqlException");
             }
         }
 
+		// imports records edited in the contractor software package and merges them with the existing database
         private void ImportButton_Click(object sender, EventArgs e)
         {
-
+			// still have to complete
         }
     }
 }
