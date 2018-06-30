@@ -120,6 +120,7 @@ namespace WindowsFormsApp2
 						NewContractorRow.employeeId, NewContractorRow.email);
 					this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
 					dataBaseDataSet.AcceptChanges();
+
 				}
 				else
 				{
