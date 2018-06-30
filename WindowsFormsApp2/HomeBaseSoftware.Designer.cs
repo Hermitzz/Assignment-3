@@ -231,6 +231,7 @@
 			this.DataGridView.ReadOnly = true;
 			this.DataGridView.Size = new System.Drawing.Size(396, 205);
 			this.DataGridView.TabIndex = 27;
+			this.DataGridView.MouseHover += new System.EventHandler(this.DataGridView_MouseHover);
 			// 
 			// ImportButton
 			// 
