@@ -114,5 +114,14 @@ namespace WindowsFormsApp2
 			// here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
 			MessageBox.Show("Export Success!.");
 		}
+
+		// below are tooltips for software usability
+		private void ContractorComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Choose from available contractors using ContractorId");
+		}
+
+
 	}
 }

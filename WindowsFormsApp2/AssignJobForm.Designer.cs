@@ -50,10 +50,10 @@
 			// AssignJobInfoLabel
 			// 
 			this.AssignJobInfoLabel.AutoSize = true;
-			this.AssignJobInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AssignJobInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.AssignJobInfoLabel.Location = new System.Drawing.Point(12, 9);
 			this.AssignJobInfoLabel.Name = "AssignJobInfoLabel";
-			this.AssignJobInfoLabel.Size = new System.Drawing.Size(523, 20);
+			this.AssignJobInfoLabel.Size = new System.Drawing.Size(616, 24);
 			this.AssignJobInfoLabel.TabIndex = 0;
 			this.AssignJobInfoLabel.Text = "Choose a job and enter the employeeID of the contractor to be assigned.";
 			// 
@@ -69,6 +69,7 @@
 			this.JobDataGridView.Size = new System.Drawing.Size(692, 205);
 			this.JobDataGridView.TabIndex = 28;
 			this.JobDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.JobDataGridView_CellClick);
+			this.JobDataGridView.MouseHover += new System.EventHandler(this.JobDataGridView_MouseHover);
 			// 
 			// jobsBindingSource
 			// 
@@ -88,21 +89,22 @@
 			// ContractorLabel
 			// 
 			this.ContractorLabel.AutoSize = true;
-			this.ContractorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ContractorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ContractorLabel.Location = new System.Drawing.Point(12, 44);
 			this.ContractorLabel.Name = "ContractorLabel";
-			this.ContractorLabel.Size = new System.Drawing.Size(92, 20);
+			this.ContractorLabel.Size = new System.Drawing.Size(128, 24);
 			this.ContractorLabel.TabIndex = 29;
-			this.ContractorLabel.Text = "Contractor: ";
+			this.ContractorLabel.Text = "Contractor ID: ";
 			// 
 			// ContractorComboBox
 			// 
 			this.ContractorComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractorsBindingSource, "ContractorId", true));
 			this.ContractorComboBox.FormattingEnabled = true;
-			this.ContractorComboBox.Location = new System.Drawing.Point(110, 44);
+			this.ContractorComboBox.Location = new System.Drawing.Point(146, 47);
 			this.ContractorComboBox.Name = "ContractorComboBox";
 			this.ContractorComboBox.Size = new System.Drawing.Size(121, 21);
 			this.ContractorComboBox.TabIndex = 30;
+			this.ContractorComboBox.MouseHover += new System.EventHandler(this.ContractorComboBox_MouseHover);
 			// 
 			// contractorsBindingSource
 			// 
@@ -119,6 +121,7 @@
 			this.AssignButton.Text = "Assign";
 			this.AssignButton.UseVisualStyleBackColor = true;
 			this.AssignButton.Click += new System.EventHandler(this.AssignButton_Click);
+			this.AssignButton.MouseHover += new System.EventHandler(this.AssignButton_MouseHover);
 			// 
 			// contractorsTableAdapter1
 			// 

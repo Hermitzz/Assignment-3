@@ -167,5 +167,23 @@ namespace WindowsFormsApp2
 				CurrentlySelectedRow = JobDataGridView.Rows[e.RowIndex];
 			}
 		}
+
+		private void ContractorComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Choose from available contractors using ContractorId");
+		}
+
+		private void JobDataGridView_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Select a job by clicking a cell in the row");
+		}
+
+		private void AssignButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Assign the contractor specified to the selected job");
+		}
 	}
 }
