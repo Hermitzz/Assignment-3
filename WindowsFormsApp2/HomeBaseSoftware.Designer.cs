@@ -81,6 +81,8 @@
 			this.contractorsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.ContractorsTableAdapter();
 			this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.jobsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.JobsTableAdapter();
+			this.ClientIDLabel = new System.Windows.Forms.Label();
+			this.ClientIDTextBox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
 			this.AddClientGroupBox.SuspendLayout();
 			this.AddContractorGroupBox.SuspendLayout();
@@ -339,6 +341,8 @@
 			// 
 			// AddJobGroupBox
 			// 
+			this.AddJobGroupBox.Controls.Add(this.ClientIDTextBox);
+			this.AddJobGroupBox.Controls.Add(this.ClientIDLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobPriorityComboBox);
 			this.AddJobGroupBox.Controls.Add(this.JobShortDescriptionLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobLocationLabel);
@@ -373,7 +377,7 @@
 			// 
 			this.JobShortDescriptionLabel.AutoSize = true;
 			this.JobShortDescriptionLabel.Enabled = false;
-			this.JobShortDescriptionLabel.Location = new System.Drawing.Point(10, 27);
+			this.JobShortDescriptionLabel.Location = new System.Drawing.Point(10, 49);
 			this.JobShortDescriptionLabel.Name = "JobShortDescriptionLabel";
 			this.JobShortDescriptionLabel.Size = new System.Drawing.Size(88, 13);
 			this.JobShortDescriptionLabel.TabIndex = 1;
@@ -383,7 +387,7 @@
 			// 
 			this.JobLocationLabel.AutoSize = true;
 			this.JobLocationLabel.Enabled = false;
-			this.JobLocationLabel.Location = new System.Drawing.Point(10, 157);
+			this.JobLocationLabel.Location = new System.Drawing.Point(10, 180);
 			this.JobLocationLabel.Name = "JobLocationLabel";
 			this.JobLocationLabel.Size = new System.Drawing.Size(48, 13);
 			this.JobLocationLabel.TabIndex = 4;
@@ -393,7 +397,7 @@
 			// 
 			this.JobDateAndTimeLabel.AutoSize = true;
 			this.JobDateAndTimeLabel.Enabled = false;
-			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(10, 210);
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(10, 218);
 			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
 			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(78, 13);
 			this.JobDateAndTimeLabel.TabIndex = 5;
@@ -411,21 +415,21 @@
 			// 
 			// JobLocationTextBox
 			// 
-			this.JobLocationTextBox.Location = new System.Drawing.Point(154, 158);
+			this.JobLocationTextBox.Location = new System.Drawing.Point(154, 177);
 			this.JobLocationTextBox.Name = "JobLocationTextBox";
 			this.JobLocationTextBox.Size = new System.Drawing.Size(100, 20);
 			this.JobLocationTextBox.TabIndex = 10;
 			// 
 			// JobDateTimeTextBox
 			// 
-			this.JobDateTimeTextBox.Location = new System.Drawing.Point(154, 207);
+			this.JobDateTimeTextBox.Location = new System.Drawing.Point(154, 215);
 			this.JobDateTimeTextBox.Name = "JobDateTimeTextBox";
 			this.JobDateTimeTextBox.Size = new System.Drawing.Size(100, 20);
 			this.JobDateTimeTextBox.TabIndex = 24;
 			// 
 			// JobShortDescriptionTextBox
 			// 
-			this.JobShortDescriptionTextBox.Location = new System.Drawing.Point(6, 45);
+			this.JobShortDescriptionTextBox.Location = new System.Drawing.Point(6, 65);
 			this.JobShortDescriptionTextBox.Multiline = true;
 			this.JobShortDescriptionTextBox.Name = "JobShortDescriptionTextBox";
 			this.JobShortDescriptionTextBox.Size = new System.Drawing.Size(248, 106);
@@ -562,6 +566,23 @@
 			// 
 			this.jobsTableAdapter.ClearBeforeFill = true;
 			// 
+			// ClientIDLabel
+			// 
+			this.ClientIDLabel.AutoSize = true;
+			this.ClientIDLabel.Enabled = false;
+			this.ClientIDLabel.Location = new System.Drawing.Point(10, 27);
+			this.ClientIDLabel.Name = "ClientIDLabel";
+			this.ClientIDLabel.Size = new System.Drawing.Size(44, 13);
+			this.ClientIDLabel.TabIndex = 26;
+			this.ClientIDLabel.Text = "ClientID";
+			// 
+			// ClientIDTextBox
+			// 
+			this.ClientIDTextBox.Location = new System.Drawing.Point(154, 24);
+			this.ClientIDTextBox.Name = "ClientIDTextBox";
+			this.ClientIDTextBox.Size = new System.Drawing.Size(100, 20);
+			this.ClientIDTextBox.TabIndex = 27;
+			// 
 			// HomeBaseForm
 			// 
 			this.ClientSize = new System.Drawing.Size(419, 536);
@@ -650,6 +671,8 @@
 		private DataBaseDataSetTableAdapters.ContractorsTableAdapter contractorsTableAdapter;
 		private System.Windows.Forms.BindingSource jobsBindingSource;
 		private DataBaseDataSetTableAdapters.JobsTableAdapter jobsTableAdapter;
+		private System.Windows.Forms.TextBox ClientIDTextBox;
+		private System.Windows.Forms.Label ClientIDLabel;
 	}
 }
 

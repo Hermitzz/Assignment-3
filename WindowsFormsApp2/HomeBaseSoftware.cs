@@ -128,8 +128,8 @@ namespace WindowsFormsApp2
 					NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
 					NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
 					this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
-					this.contractorsTableAdapter.Insert(NewContractorRow.name, NewContractorRow.address, NewContractorRow.landLine, NewContractorRow.mobilePhone,
-						NewContractorRow.employeeId, NewContractorRow.email);
+					//this.contractorsTableAdapter.Insert(NewContractorRow.name, NewContractorRow.address, NewContractorRow.landLine, NewContractorRow.mobilePhone,
+					//	NewContractorRow.employeeId, NewContractorRow.email);
 					this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
 					dataBaseDataSet.AcceptChanges();
 
@@ -144,12 +144,16 @@ namespace WindowsFormsApp2
 				if (JobLocationTextBox.Text.Trim() != "" && JobDateTimeTextBox.Text.Trim() != "")
 				{
 					DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
+					NewJobRow.clientId = Int32.Parse(ClientIDTextBox.Text);
 					NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
 					NewJobRow.location = JobLocationTextBox.Text.ToString();
 					NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
 					NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
+					NewJobRow.jobCompleted = false;
+					NewJobRow.amountCharged = 0;
+					NewJobRow.jobId = Math.Abs(NewJobRow.jobId);
 					this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
-					this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
+					//this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
 					dataBaseDataSet.AcceptChanges();
 					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
 				}
