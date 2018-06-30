@@ -45,6 +45,8 @@
 			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
 			this.UpdateButton = new System.Windows.Forms.Button();
 			this.JobDetailsGroupBox = new System.Windows.Forms.GroupBox();
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.JobPriorityTextBox = new System.Windows.Forms.TextBox();
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
-			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -72,6 +72,7 @@
 			this.PrintButton.Text = "Print";
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+			this.PrintButton.MouseHover += new System.EventHandler(this.PrintButton_MouseHover);
 			// 
 			// ExportButton
 			// 
@@ -81,6 +82,7 @@
 			this.ExportButton.TabIndex = 54;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+			this.ExportButton.MouseHover += new System.EventHandler(this.ExportButton_MouseHover);
 			// 
 			// ClientDetailsGroupBox
 			// 
@@ -213,6 +215,7 @@
 			this.UpdateButton.TabIndex = 52;
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
+			this.UpdateButton.MouseHover += new System.EventHandler(this.UpdateButton_MouseHover);
 			// 
 			// JobDetailsGroupBox
 			// 
@@ -234,6 +237,23 @@
 			this.JobDetailsGroupBox.TabIndex = 51;
 			this.JobDetailsGroupBox.TabStop = false;
 			this.JobDetailsGroupBox.Text = "Job Details";
+			// 
+			// JobDateTimePicker
+			// 
+			this.JobDateTimePicker.Enabled = false;
+			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
+			this.JobDateTimePicker.Name = "JobDateTimePicker";
+			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.JobDateTimePicker.TabIndex = 36;
+			// 
+			// JobDateAndTimeLabel
+			// 
+			this.JobDateAndTimeLabel.AutoSize = true;
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
+			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
+			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
+			this.JobDateAndTimeLabel.TabIndex = 35;
+			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
 			// JobPriorityTextBox
 			// 
@@ -258,6 +278,7 @@
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(100, 20);
 			this.AmountTextBox.TabIndex = 33;
+			this.AmountTextBox.MouseHover += new System.EventHandler(this.AmountTextBox_MouseHover);
 			// 
 			// label2
 			// 
@@ -294,6 +315,7 @@
 			this.CompletionCheckBox.TabIndex = 25;
 			this.CompletionCheckBox.Text = "Completed";
 			this.CompletionCheckBox.UseVisualStyleBackColor = true;
+			this.CompletionCheckBox.MouseHover += new System.EventHandler(this.CompletionCheckBox_MouseHover);
 			// 
 			// JobShortDescriptionLabel
 			// 
@@ -311,6 +333,7 @@
 			this.JobShortDescriptionTextBox.Name = "JobShortDescriptionTextBox";
 			this.JobShortDescriptionTextBox.Size = new System.Drawing.Size(248, 106);
 			this.JobShortDescriptionTextBox.TabIndex = 23;
+			this.JobShortDescriptionTextBox.MouseHover += new System.EventHandler(this.JobShortDescriptionTextBox_MouseHover);
 			// 
 			// DataGridView
 			// 
@@ -329,23 +352,7 @@
 			this.ImportButton.TabIndex = 49;
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
-			// 
-			// JobDateTimePicker
-			// 
-			this.JobDateTimePicker.Enabled = false;
-			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
-			this.JobDateTimePicker.Name = "JobDateTimePicker";
-			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
-			this.JobDateTimePicker.TabIndex = 36;
-			// 
-			// JobDateAndTimeLabel
-			// 
-			this.JobDateAndTimeLabel.AutoSize = true;
-			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
-			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
-			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
-			this.JobDateAndTimeLabel.TabIndex = 35;
-			this.JobDateAndTimeLabel.Text = "Date/Time";
+			this.ImportButton.MouseHover += new System.EventHandler(this.ImportButton_MouseHover);
 			// 
 			// ContractorSoftware
 			// 

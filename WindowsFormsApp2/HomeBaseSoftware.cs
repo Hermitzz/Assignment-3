@@ -347,8 +347,6 @@ namespace WindowsFormsApp2
         }
 
 		// below are tooltips used to increase software usability
-
-
 		private void AssignJobButton_MouseHover(object sender, EventArgs e)
 		{
 			ToolTip toolTip = new ToolTip();
@@ -425,6 +423,12 @@ namespace WindowsFormsApp2
 		{
 			ToolTip toolTip = new ToolTip();
 			toolTip.SetToolTip(AddJobRadioButton, "Add a job to the DataBase");
+		}
+
+		private void DataGridView_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(DataGridView, "A DataGridView showing DataBase records");
 		}
 	}
 }
