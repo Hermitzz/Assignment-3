@@ -22,3 +22,4 @@ C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\ob
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.exe
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\ContractorSoftware\obj\Debug\ContractorSoftware.pdb
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.PrintForm.resources
