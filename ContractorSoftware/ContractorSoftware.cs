@@ -91,7 +91,7 @@ namespace ContractorSoftware
 
                 JobShortDescriptionTextBox.Text = CurrentlySelectedRow.Cells[1].Value.ToString();
                 JobLocationTextBox.Text = CurrentlySelectedRow.Cells[2].Value.ToString();
-                JobDateAndTimeTextBox.Text = CurrentlySelectedRow.Cells[3].Value.ToString();
+                JobDateTimePicker.Value = (DateTime)CurrentlySelectedRow.Cells[3].Value;
                 JobPriorityTextBox.Text = CurrentlySelectedRow.Cells[4].Value.ToString();
 
                 String currentClientId = CurrentlySelectedRow.Cells[5].Value.ToString();

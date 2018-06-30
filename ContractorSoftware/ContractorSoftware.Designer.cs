@@ -49,15 +49,15 @@
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.JobLocationTextBox = new System.Windows.Forms.TextBox();
-			this.JobDateAndTimeTextBox = new System.Windows.Forms.TextBox();
 			this.CompletionCheckBox = new System.Windows.Forms.CheckBox();
 			this.JobShortDescriptionLabel = new System.Windows.Forms.Label();
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -216,14 +216,14 @@
 			// 
 			// JobDetailsGroupBox
 			// 
+			this.JobDetailsGroupBox.Controls.Add(this.JobDateTimePicker);
+			this.JobDetailsGroupBox.Controls.Add(this.JobDateAndTimeLabel);
 			this.JobDetailsGroupBox.Controls.Add(this.JobPriorityTextBox);
 			this.JobDetailsGroupBox.Controls.Add(this.AmountLabel);
 			this.JobDetailsGroupBox.Controls.Add(this.AmountTextBox);
 			this.JobDetailsGroupBox.Controls.Add(this.label2);
-			this.JobDetailsGroupBox.Controls.Add(this.label3);
 			this.JobDetailsGroupBox.Controls.Add(this.label4);
 			this.JobDetailsGroupBox.Controls.Add(this.JobLocationTextBox);
-			this.JobDetailsGroupBox.Controls.Add(this.JobDateAndTimeTextBox);
 			this.JobDetailsGroupBox.Controls.Add(this.CompletionCheckBox);
 			this.JobDetailsGroupBox.Controls.Add(this.JobShortDescriptionLabel);
 			this.JobDetailsGroupBox.Controls.Add(this.JobShortDescriptionTextBox);
@@ -268,15 +268,6 @@
 			this.label2.TabIndex = 26;
 			this.label2.Text = "Location";
 			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(15, 209);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(78, 13);
-			this.label3.TabIndex = 27;
-			this.label3.Text = "Date And Time";
-			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
@@ -293,14 +284,6 @@
 			this.JobLocationTextBox.ReadOnly = true;
 			this.JobLocationTextBox.Size = new System.Drawing.Size(100, 20);
 			this.JobLocationTextBox.TabIndex = 29;
-			// 
-			// JobDateAndTimeTextBox
-			// 
-			this.JobDateAndTimeTextBox.Location = new System.Drawing.Point(159, 206);
-			this.JobDateAndTimeTextBox.Name = "JobDateAndTimeTextBox";
-			this.JobDateAndTimeTextBox.ReadOnly = true;
-			this.JobDateAndTimeTextBox.Size = new System.Drawing.Size(100, 20);
-			this.JobDateAndTimeTextBox.TabIndex = 30;
 			// 
 			// CompletionCheckBox
 			// 
@@ -346,6 +329,23 @@
 			this.ImportButton.TabIndex = 49;
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
+			// 
+			// JobDateTimePicker
+			// 
+			this.JobDateTimePicker.Enabled = false;
+			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
+			this.JobDateTimePicker.Name = "JobDateTimePicker";
+			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.JobDateTimePicker.TabIndex = 36;
+			// 
+			// JobDateAndTimeLabel
+			// 
+			this.JobDateAndTimeLabel.AutoSize = true;
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
+			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
+			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
+			this.JobDateAndTimeLabel.TabIndex = 35;
+			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
 			// ContractorSoftware
 			// 
@@ -394,16 +394,16 @@
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.TextBox AmountTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox JobLocationTextBox;
-        private System.Windows.Forms.TextBox JobDateAndTimeTextBox;
         private System.Windows.Forms.CheckBox CompletionCheckBox;
         private System.Windows.Forms.Label JobShortDescriptionLabel;
         private System.Windows.Forms.TextBox JobShortDescriptionTextBox;
         private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.TextBox JobPriorityTextBox;
-    }
+		private System.Windows.Forms.DateTimePicker JobDateTimePicker;
+		private System.Windows.Forms.Label JobDateAndTimeLabel;
+	}
 }
 
