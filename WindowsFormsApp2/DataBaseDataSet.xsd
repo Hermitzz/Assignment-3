@@ -113,7 +113,7 @@
   <xs:element name="DataBaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataBaseDataSet" msprop:Generator_UserDSName="DataBaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Clients" msprop:Generator_TableClassName="ClientsDataTable" msprop:Generator_TableVarName="tableClients" msprop:Generator_TablePropName="Clients" msprop:Generator_RowDeletingName="ClientsRowDeleting" msprop:Generator_RowChangingName="ClientsRowChanging" msprop:Generator_RowEvHandlerName="ClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsRowDeleted" msprop:Generator_UserTableName="Clients" msprop:Generator_RowChangedName="ClientsRowChanged" msprop:Generator_RowEvArgName="ClientsRowChangeEvent" msprop:Generator_RowClassName="ClientsRow">
+        <xs:element name="Clients" msprop:Generator_TableClassName="ClientsDataTable" msprop:Generator_TableVarName="tableClients" msprop:Generator_RowChangedName="ClientsRowChanged" msprop:Generator_TablePropName="Clients" msprop:Generator_RowDeletingName="ClientsRowDeleting" msprop:Generator_RowChangingName="ClientsRowChanging" msprop:Generator_RowEvHandlerName="ClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsRowDeleted" msprop:Generator_RowClassName="ClientsRow" msprop:Generator_UserTableName="Clients" msprop:Generator_RowEvArgName="ClientsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
@@ -161,7 +161,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent" msprop:Generator_RowClassName="ContractorsRow">
+        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_RowClassName="ContractorsRow" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="employeeId" msprop:Generator_ColumnVarNameInTable="columnemployeeId" msprop:Generator_ColumnPropNameInRow="employeeId" msprop:Generator_ColumnPropNameInTable="employeeIdColumn" msprop:Generator_UserColumnName="employeeId" minOccurs="0">
@@ -209,7 +209,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Jobs" msprop:Generator_TableClassName="JobsDataTable" msprop:Generator_TableVarName="tableJobs" msprop:Generator_TablePropName="Jobs" msprop:Generator_RowDeletingName="JobsRowDeleting" msprop:Generator_RowChangingName="JobsRowChanging" msprop:Generator_RowEvHandlerName="JobsRowChangeEventHandler" msprop:Generator_RowDeletedName="JobsRowDeleted" msprop:Generator_UserTableName="Jobs" msprop:Generator_RowChangedName="JobsRowChanged" msprop:Generator_RowEvArgName="JobsRowChangeEvent" msprop:Generator_RowClassName="JobsRow">
+        <xs:element name="Jobs" msprop:Generator_TableClassName="JobsDataTable" msprop:Generator_TableVarName="tableJobs" msprop:Generator_RowChangedName="JobsRowChanged" msprop:Generator_TablePropName="Jobs" msprop:Generator_RowDeletingName="JobsRowDeleting" msprop:Generator_RowChangingName="JobsRowChanging" msprop:Generator_RowEvHandlerName="JobsRowChangeEventHandler" msprop:Generator_RowDeletedName="JobsRowDeleted" msprop:Generator_RowClassName="JobsRow" msprop:Generator_UserTableName="Jobs" msprop:Generator_RowEvArgName="JobsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="shortDescription" msprop:Generator_ColumnVarNameInTable="columnshortDescription" msprop:Generator_ColumnPropNameInRow="shortDescription" msprop:Generator_ColumnPropNameInTable="shortDescriptionColumn" msprop:Generator_UserColumnName="shortDescription" minOccurs="0">

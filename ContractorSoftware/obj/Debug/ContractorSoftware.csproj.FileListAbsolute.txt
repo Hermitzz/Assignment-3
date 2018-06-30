@@ -1,0 +1,12 @@
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorDataBase.mdf
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorDataBase_log.ldf
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.exe.config
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.exe
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.pdb
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csprojResolveAssemblyReference.cache
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.Form1.resources
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.Properties.Resources.resources
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.GenerateResource.Cache
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.exe
+D:\My Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.pdb
