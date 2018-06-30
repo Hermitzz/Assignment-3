@@ -175,7 +175,17 @@ SELECT ContractorId, name, address, landLine, mobilePhone, employeeId, email FRO
               <Mapping SourceColumn="employeeId" DataSetColumn="employeeId" />
               <Mapping SourceColumn="email" DataSetColumn="email" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DataBaseConnectionString (Settings)" DbObjectName="dbo.Contractors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SelectContractor" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectContractors" GeneratorSourceName="SelectContractor" GetMethodModifier="Public" GetMethodName="SelectContractors" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectContractors" UserSourceName="SelectContractor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        name, ContractorId 
+FROM            Contractors</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="JobsTableAdapter" GeneratorDataComponentClassName="JobsTableAdapter" Name="Jobs" UserDataComponentName="JobsTableAdapter">
             <MainSource>
@@ -278,7 +288,7 @@ SELECT jobId, shortDescription, location, dateAndTime, priority, clientId, Contr
   <xs:element name="DataBaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataBaseDataSet" msprop:Generator_UserDSName="DataBaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Clients" msprop:Generator_TableClassName="ClientsDataTable" msprop:Generator_TableVarName="tableClients" msprop:Generator_TablePropName="Clients" msprop:Generator_RowDeletingName="ClientsRowDeleting" msprop:Generator_RowChangingName="ClientsRowChanging" msprop:Generator_RowEvHandlerName="ClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsRowDeleted" msprop:Generator_UserTableName="Clients" msprop:Generator_RowChangedName="ClientsRowChanged" msprop:Generator_RowEvArgName="ClientsRowChangeEvent" msprop:Generator_RowClassName="ClientsRow">
+        <xs:element name="Clients" msprop:Generator_TableClassName="ClientsDataTable" msprop:Generator_TableVarName="tableClients" msprop:Generator_RowChangedName="ClientsRowChanged" msprop:Generator_TablePropName="Clients" msprop:Generator_RowDeletingName="ClientsRowDeleting" msprop:Generator_RowChangingName="ClientsRowChanging" msprop:Generator_RowEvHandlerName="ClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsRowDeleted" msprop:Generator_RowClassName="ClientsRow" msprop:Generator_UserTableName="Clients" msprop:Generator_RowEvArgName="ClientsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="clientId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnclientId" msprop:Generator_ColumnPropNameInRow="clientId" msprop:Generator_ColumnPropNameInTable="clientIdColumn" msprop:Generator_UserColumnName="clientId" type="xs:int" />
@@ -327,7 +337,7 @@ SELECT jobId, shortDescription, location, dateAndTime, priority, clientId, Contr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent" msprop:Generator_RowClassName="ContractorsRow">
+        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_RowClassName="ContractorsRow" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ContractorId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnContractorId" msprop:Generator_ColumnPropNameInRow="ContractorId" msprop:Generator_ColumnPropNameInTable="ContractorIdColumn" msprop:Generator_UserColumnName="ContractorId" type="xs:int" />
@@ -376,7 +386,7 @@ SELECT jobId, shortDescription, location, dateAndTime, priority, clientId, Contr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Jobs" msprop:Generator_TableClassName="JobsDataTable" msprop:Generator_TableVarName="tableJobs" msprop:Generator_TablePropName="Jobs" msprop:Generator_RowDeletingName="JobsRowDeleting" msprop:Generator_RowChangingName="JobsRowChanging" msprop:Generator_RowEvHandlerName="JobsRowChangeEventHandler" msprop:Generator_RowDeletedName="JobsRowDeleted" msprop:Generator_UserTableName="Jobs" msprop:Generator_RowChangedName="JobsRowChanged" msprop:Generator_RowEvArgName="JobsRowChangeEvent" msprop:Generator_RowClassName="JobsRow">
+        <xs:element name="Jobs" msprop:Generator_TableClassName="JobsDataTable" msprop:Generator_TableVarName="tableJobs" msprop:Generator_RowChangedName="JobsRowChanged" msprop:Generator_TablePropName="Jobs" msprop:Generator_RowDeletingName="JobsRowDeleting" msprop:Generator_RowChangingName="JobsRowChanging" msprop:Generator_RowEvHandlerName="JobsRowChangeEventHandler" msprop:Generator_RowDeletedName="JobsRowDeleted" msprop:Generator_RowClassName="JobsRow" msprop:Generator_UserTableName="Jobs" msprop:Generator_RowEvArgName="JobsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="jobId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnjobId" msprop:Generator_ColumnPropNameInRow="jobId" msprop:Generator_ColumnPropNameInTable="jobIdColumn" msprop:Generator_UserColumnName="jobId" type="xs:int" />
@@ -426,8 +436,8 @@ SELECT jobId, shortDescription, location, dateAndTime, priority, clientId, Contr
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Jobs__clientId__5FB337D6" msdata:parent="Clients" msdata:child="Jobs" msdata:parentkey="clientId" msdata:childkey="clientId" msprop:Generator_UserChildTable="Jobs" msprop:Generator_ChildPropName="GetJobsRows" msprop:Generator_UserRelationName="FK__Jobs__clientId__5FB337D6" msprop:Generator_ParentPropName="ClientsRow" msprop:Generator_RelationVarName="relationFK__Jobs__clientId__5FB337D6" msprop:Generator_UserParentTable="Clients" />
-      <msdata:Relationship name="FK__Jobs__Contractor__6FE99F9F" msdata:parent="Contractors" msdata:child="Jobs" msdata:parentkey="ContractorId" msdata:childkey="ContractorId" msprop:Generator_UserChildTable="Jobs" msprop:Generator_ChildPropName="GetJobsRows" msprop:Generator_UserRelationName="FK__Jobs__Contractor__6FE99F9F" msprop:Generator_ParentPropName="ContractorsRow" msprop:Generator_RelationVarName="relationFK__Jobs__Contractor__6FE99F9F" msprop:Generator_UserParentTable="Contractors" />
+      <msdata:Relationship name="FK__Jobs__clientId__5FB337D6" msdata:parent="Clients" msdata:child="Jobs" msdata:parentkey="clientId" msdata:childkey="clientId" msprop:Generator_UserChildTable="Jobs" msprop:Generator_ChildPropName="GetJobsRows" msprop:Generator_UserRelationName="FK__Jobs__clientId__5FB337D6" msprop:Generator_RelationVarName="relationFK__Jobs__clientId__5FB337D6" msprop:Generator_UserParentTable="Clients" msprop:Generator_ParentPropName="ClientsRow" />
+      <msdata:Relationship name="FK__Jobs__Contractor__6FE99F9F" msdata:parent="Contractors" msdata:child="Jobs" msdata:parentkey="ContractorId" msdata:childkey="ContractorId" msprop:Generator_UserChildTable="Jobs" msprop:Generator_ChildPropName="GetJobsRows" msprop:Generator_UserRelationName="FK__Jobs__Contractor__6FE99F9F" msprop:Generator_RelationVarName="relationFK__Jobs__Contractor__6FE99F9F" msprop:Generator_UserParentTable="Contractors" msprop:Generator_ParentPropName="ContractorsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

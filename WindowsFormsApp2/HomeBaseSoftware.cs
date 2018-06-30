@@ -239,7 +239,7 @@ namespace WindowsFormsApp2
 
 		private void AssignJobButton_Click(object sender, EventArgs e)
 		{
-			AssignJobForm newAssignmentForm = new AssignJobForm();
+			AssignJobForm newAssignmentForm = new AssignJobForm(dataBaseDataSet, contractorsTableAdapter, jobsTableAdapter);
 			newAssignmentForm.ShowDialog();
 		}
 	}
