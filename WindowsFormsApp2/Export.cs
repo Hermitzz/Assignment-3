@@ -42,7 +42,7 @@ namespace WindowsFormsApp2
 							for (int Index = 0; Index < reader.VisibleFieldCount / reader.FieldCount; Index++)
 							{
 								reader.Read();
-								string conId = reader.GetString(1);
+								string conId = reader.GetString(1) + " " + reader.GetInt32(0).ToString();
 								ContractorComboBox.Items.Add(conId);
 							}
 							conn.Close();

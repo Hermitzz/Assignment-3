@@ -31,15 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			this.AssignJobInfoLabel = new System.Windows.Forms.Label();
 			this.JobDataGridView = new System.Windows.Forms.DataGridView();
-			this.jobIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.contractorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.jobCompletedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.amountChargedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataBaseDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataBaseDataSet1 = new WindowsFormsApp2.DataBaseDataSet();
@@ -70,88 +61,14 @@
 			// 
 			this.JobDataGridView.AllowUserToAddRows = false;
 			this.JobDataGridView.AllowUserToDeleteRows = false;
-			this.JobDataGridView.AutoGenerateColumns = false;
 			this.JobDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.JobDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.jobIdDataGridViewTextBoxColumn,
-            this.shortDescriptionDataGridViewTextBoxColumn,
-            this.locationDataGridViewTextBoxColumn,
-            this.dateAndTimeDataGridViewTextBoxColumn,
-            this.priorityDataGridViewTextBoxColumn,
-            this.clientIdDataGridViewTextBoxColumn,
-            this.contractorIdDataGridViewTextBoxColumn,
-            this.jobCompletedDataGridViewCheckBoxColumn,
-            this.amountChargedDataGridViewTextBoxColumn});
-			this.JobDataGridView.DataSource = this.jobsBindingSource;
 			this.JobDataGridView.Location = new System.Drawing.Point(13, 101);
 			this.JobDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.JobDataGridView.Name = "JobDataGridView";
 			this.JobDataGridView.ReadOnly = true;
 			this.JobDataGridView.Size = new System.Drawing.Size(692, 205);
 			this.JobDataGridView.TabIndex = 28;
-			// 
-			// jobIdDataGridViewTextBoxColumn
-			// 
-			this.jobIdDataGridViewTextBoxColumn.DataPropertyName = "jobId";
-			this.jobIdDataGridViewTextBoxColumn.HeaderText = "jobId";
-			this.jobIdDataGridViewTextBoxColumn.Name = "jobIdDataGridViewTextBoxColumn";
-			this.jobIdDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// shortDescriptionDataGridViewTextBoxColumn
-			// 
-			this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "shortDescription";
-			this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "shortDescription";
-			this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-			this.shortDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// locationDataGridViewTextBoxColumn
-			// 
-			this.locationDataGridViewTextBoxColumn.DataPropertyName = "location";
-			this.locationDataGridViewTextBoxColumn.HeaderText = "location";
-			this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
-			this.locationDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dateAndTimeDataGridViewTextBoxColumn
-			// 
-			this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "dateAndTime";
-			this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "dateAndTime";
-			this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
-			this.dateAndTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// priorityDataGridViewTextBoxColumn
-			// 
-			this.priorityDataGridViewTextBoxColumn.DataPropertyName = "priority";
-			this.priorityDataGridViewTextBoxColumn.HeaderText = "priority";
-			this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
-			this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clientIdDataGridViewTextBoxColumn
-			// 
-			this.clientIdDataGridViewTextBoxColumn.DataPropertyName = "clientId";
-			this.clientIdDataGridViewTextBoxColumn.HeaderText = "clientId";
-			this.clientIdDataGridViewTextBoxColumn.Name = "clientIdDataGridViewTextBoxColumn";
-			this.clientIdDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// contractorIdDataGridViewTextBoxColumn
-			// 
-			this.contractorIdDataGridViewTextBoxColumn.DataPropertyName = "ContractorId";
-			this.contractorIdDataGridViewTextBoxColumn.HeaderText = "ContractorId";
-			this.contractorIdDataGridViewTextBoxColumn.Name = "contractorIdDataGridViewTextBoxColumn";
-			this.contractorIdDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// jobCompletedDataGridViewCheckBoxColumn
-			// 
-			this.jobCompletedDataGridViewCheckBoxColumn.DataPropertyName = "jobCompleted";
-			this.jobCompletedDataGridViewCheckBoxColumn.HeaderText = "jobCompleted";
-			this.jobCompletedDataGridViewCheckBoxColumn.Name = "jobCompletedDataGridViewCheckBoxColumn";
-			this.jobCompletedDataGridViewCheckBoxColumn.ReadOnly = true;
-			// 
-			// amountChargedDataGridViewTextBoxColumn
-			// 
-			this.amountChargedDataGridViewTextBoxColumn.DataPropertyName = "amountCharged";
-			this.amountChargedDataGridViewTextBoxColumn.HeaderText = "amountCharged";
-			this.amountChargedDataGridViewTextBoxColumn.Name = "amountChargedDataGridViewTextBoxColumn";
-			this.amountChargedDataGridViewTextBoxColumn.ReadOnly = true;
+			this.JobDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.JobDataGridView_CellClick);
 			// 
 			// jobsBindingSource
 			// 
@@ -181,14 +98,11 @@
 			// ContractorComboBox
 			// 
 			this.ContractorComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractorsBindingSource, "ContractorId", true));
-			this.ContractorComboBox.DataSource = this.contractorsBindingSource;
-			this.ContractorComboBox.DisplayMember = "ContractorId";
 			this.ContractorComboBox.FormattingEnabled = true;
 			this.ContractorComboBox.Location = new System.Drawing.Point(110, 44);
 			this.ContractorComboBox.Name = "ContractorComboBox";
 			this.ContractorComboBox.Size = new System.Drawing.Size(121, 21);
 			this.ContractorComboBox.TabIndex = 30;
-			this.ContractorComboBox.ValueMember = "ContractorId";
 			// 
 			// contractorsBindingSource
 			// 
@@ -250,14 +164,5 @@
 		private DataBaseDataSetTableAdapters.ContractorsTableAdapter contractorsTableAdapter1;
 		private System.Windows.Forms.BindingSource jobsBindingSource;
 		private DataBaseDataSetTableAdapters.JobsTableAdapter jobsTableAdapter1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn jobIdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn shortDescriptionDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clientIdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn contractorIdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn jobCompletedDataGridViewCheckBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn amountChargedDataGridViewTextBoxColumn;
 	}
 }
