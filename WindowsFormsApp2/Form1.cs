@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,9 +14,17 @@ namespace WindowsFormsApp2
 {
     public partial class HomeBaseForm : Form
     {
+
+        SqlConnection conn;
+        SqlConnectionStringBuilder csb;
+
         public HomeBaseForm()
         {
             InitializeComponent();
+            csb = new SqlConnectionStringBuilder();
+            csb.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; 
+                                    AttachDbFilename = D:\My Documents\GitHub\Assignment-3\WindowsFormsApp2\DataBase.mdf; 
+                                    Integrated Security = True";                          
         }
 
 		private void Form1_Load_1(object sender, EventArgs e)
@@ -85,31 +94,47 @@ namespace WindowsFormsApp2
 				if (ClientNameTextBox.Text.Trim() != "" && ClientAddressTextBox.Text.Trim() != "" && ClientLandLineTextBox.Text.Trim() != "" &&
 					ClientMobilePhoneTextBox.Text.Trim() != "" && ClientBusinessNameTextBox.Text.Trim() != "" && ClientEmailTextBox.Text.Trim() != "")
 				{
-					DataBaseDataSet.ClientsRow NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
-					NewClientsRow.name = ClientNameTextBox.Text.ToString();
-					NewClientsRow.address = ClientAddressTextBox.Text.ToString();
-					NewClientsRow.landLine = ClientLandLineTextBox.Text.ToString();
-					NewClientsRow.mobilePhone = ClientMobilePhoneTextBox.Text.ToString();
-					NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
-					NewClientsRow.email = ClientEmailTextBox.Text.ToString();
-                    this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
-                 //   this.clientsTableAdapter.Insert(NewClientsRow.name, NewClientsRow.address, NewClientsRow.landLine, NewClientsRow.mobilePhone,
-                  //      NewClientsRow.businessName, NewClientsRow.email);
-                 //   dataBaseDataSet.AcceptChanges();
-
-                    try
+                    using (conn = new SqlConnection(csb.ConnectionString))
                     {
-                        this.Validate();
-                        this.clientsBindingSource.EndEdit();
-                        this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
-                        MessageBox.Show("Update successful");
-                    }
-                    catch (System.Exception ex)
-                    {
-                        MessageBox.Show("Update failed");
-                    }
+                        try
+                        {
+                            conn.Open();
+                            if (conn.State == ConnectionState.Open) // if connection.Open was successful
+                            {
+                                using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
+                                    "(name, address, landLine, mobilePhone, businessName, email) " +
+                                    "VALUES ('" + ClientNameTextBox.Text + "', '" +
+                                    ClientAddressTextBox.Text + "', '" +
+                                    ClientLandLineTextBox.Text + "', '" +
+                                    ClientMobilePhoneTextBox.Text + "', '" +
+                                    ClientBusinessNameTextBox.Text + "', '" +
+                                    ClientEmailTextBox.Text + "')"))
+                                {
+                                    cmd.CommandType = CommandType.Text;
+                                    cmd.Connection = conn;
+                                    cmd.ExecuteNonQuery();
+                                    if (cmd.ExecuteNonQuery()>0)
+                                    {
+                                        MessageBox.Show("Record Successfully Added!");
+                                    } else
+                                    {
+                                        MessageBox.Show("Adding Record Failed!");
+                                    }
+                                    conn.Close();
+                                }
 
-				}
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed.");
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
 				else
 				{
 					MessageBox.Show("Cannot add clients with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -206,5 +231,10 @@ namespace WindowsFormsApp2
 				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
-	}
+
+        private void AssignJobButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
