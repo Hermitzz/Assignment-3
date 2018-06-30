@@ -15,16 +15,19 @@ namespace WindowsFormsApp2
     public partial class HomeBaseForm : Form
     {
 
-        SqlConnection conn;
-        SqlConnectionStringBuilder csb;
+        private SqlConnection conn;
+        private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
+        private BindingSource bindingSource1 = new BindingSource();
+        private SqlDataAdapter dataAdapter = new SqlDataAdapter();
 
         public HomeBaseForm()
         {
             InitializeComponent();
-            csb = new SqlConnectionStringBuilder();
-            csb.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; 
-                                    AttachDbFilename = D:\My Documents\GitHub\Assignment-3\WindowsFormsApp2\DataBase.mdf; 
-                                    Integrated Security = True";                          
+            string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "DataBase.mdf");
+            string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
+                                filePath + @"; Integrated Security = True";
+            csb.ConnectionString = connection;
+
         }
 
 		private void Form1_Load_1(object sender, EventArgs e)
@@ -43,7 +46,10 @@ namespace WindowsFormsApp2
 			AddJobGroupBox.Parent = AddClientGroupBox.Parent;
 			AddJobGroupBox.Location = AddClientGroupBox.Location;
 			JobPriorityComboBox.SelectedIndex = 0;
-		}
+
+            DataGridView.DataSource = bindingSource1;
+            GetData("SELECT * from Clients");
+        }
 
 		// makes the selected groupbox visible and the others invisible
 		private void AddClientRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -56,7 +62,7 @@ namespace WindowsFormsApp2
                 AddJobGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Clients;
+				//DataGridView.DataSource = dataBaseDataSet.Clients;
             }
         }
 
@@ -69,7 +75,7 @@ namespace WindowsFormsApp2
 				AddJobGroupBox.Visible = false;
                 AddClientGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Contractors;
+				//DataGridView.DataSource = dataBaseDataSet.Contractors;
 			}
         }
 
@@ -82,7 +88,7 @@ namespace WindowsFormsApp2
 				AddClientGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Jobs;
+				//DataGridView.DataSource = dataBaseDataSet.Jobs;
 			}
         }
 
@@ -112,9 +118,11 @@ namespace WindowsFormsApp2
                                 {
                                     cmd.CommandType = CommandType.Text;
                                     cmd.Connection = conn;
-                                    cmd.ExecuteNonQuery();
-                                    if (cmd.ExecuteNonQuery()>0)
+                                    int a = cmd.ExecuteNonQuery();
+                                    if (a>0)
                                     {
+                                        GetData(dataAdapter.SelectCommand.CommandText);
+                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
                                         MessageBox.Show("Record Successfully Added!");
                                     } else
                                     {
@@ -242,5 +250,37 @@ namespace WindowsFormsApp2
 			AssignJobForm newAssignmentForm = new AssignJobForm();
 			newAssignmentForm.ShowDialog();
 		}
-	}
+
+        private void GetData(string selectCommand)
+        {
+            try
+            {
+                // Specify a connection string. Replace the given value with a 
+                // valid connection string for a Northwind SQL Server sample
+                // database accessible to your system.
+                String connectionString = csb.ConnectionString;
+
+                // Create a new data adapter based on the specified query.
+                dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
+
+                // Create a command builder to generate SQL update, insert, and
+                // delete commands based on selectCommand. These are used to
+                // update the database.
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                // Populate a new data table and bind it to the BindingSource.
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                dataAdapter.Fill(table);
+                bindingSource1.DataSource = table;
+                
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("To run this example, replace the value of the " +
+                    "connectionString variable with a connection string that is " +
+                    "valid for your system.");
+            }
+        }
+    }
 }
