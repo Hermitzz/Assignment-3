@@ -1,33 +1,33 @@
 ﻿namespace ContractorSoftware
 {
-    partial class ContractorSoftware
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class ContractorSoftware
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			this.PrintButton = new System.Windows.Forms.Button();
 			this.ExportButton = new System.Windows.Forms.Button();
 			this.ClientDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -45,6 +45,8 @@
 			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
 			this.UpdateButton = new System.Windows.Forms.Button();
 			this.JobDetailsGroupBox = new System.Windows.Forms.GroupBox();
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.JobPriorityTextBox = new System.Windows.Forms.TextBox();
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
-			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -81,6 +81,7 @@
 			this.ExportButton.TabIndex = 54;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// ClientDetailsGroupBox
 			// 
@@ -213,6 +214,7 @@
 			this.UpdateButton.TabIndex = 52;
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
+			this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
 			// 
 			// JobDetailsGroupBox
 			// 
@@ -234,6 +236,23 @@
 			this.JobDetailsGroupBox.TabIndex = 51;
 			this.JobDetailsGroupBox.TabStop = false;
 			this.JobDetailsGroupBox.Text = "Job Details";
+			// 
+			// JobDateTimePicker
+			// 
+			this.JobDateTimePicker.Enabled = false;
+			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
+			this.JobDateTimePicker.Name = "JobDateTimePicker";
+			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.JobDateTimePicker.TabIndex = 36;
+			// 
+			// JobDateAndTimeLabel
+			// 
+			this.JobDateAndTimeLabel.AutoSize = true;
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
+			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
+			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
+			this.JobDateAndTimeLabel.TabIndex = 35;
+			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
 			// JobPriorityTextBox
 			// 
@@ -329,23 +348,7 @@
 			this.ImportButton.TabIndex = 49;
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
-			// 
-			// JobDateTimePicker
-			// 
-			this.JobDateTimePicker.Enabled = false;
-			this.JobDateTimePicker.Location = new System.Drawing.Point(79, 206);
-			this.JobDateTimePicker.Name = "JobDateTimePicker";
-			this.JobDateTimePicker.Size = new System.Drawing.Size(182, 20);
-			this.JobDateTimePicker.TabIndex = 36;
-			// 
-			// JobDateAndTimeLabel
-			// 
-			this.JobDateAndTimeLabel.AutoSize = true;
-			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(15, 212);
-			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
-			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
-			this.JobDateAndTimeLabel.TabIndex = 35;
-			this.JobDateAndTimeLabel.Text = "Date/Time";
+			this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
 			// 
 			// ContractorSoftware
 			// 
@@ -361,7 +364,7 @@
 			this.Controls.Add(this.ImportButton);
 			this.MaximizeBox = false;
 			this.Name = "ContractorSoftware";
-			this.Text = "Form1";
+			this.Text = "Contractor Software";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ClientDetailsGroupBox.ResumeLayout(false);
 			this.ClientDetailsGroupBox.PerformLayout();
@@ -370,38 +373,38 @@
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
 			this.ResumeLayout(false);
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.Button PrintButton;
-        private System.Windows.Forms.Button ExportButton;
-        private System.Windows.Forms.GroupBox ClientDetailsGroupBox;
-        private System.Windows.Forms.Label ClientNameLabel;
-        private System.Windows.Forms.Label ClientAddressLabel;
-        private System.Windows.Forms.Label ClientLandLineLabel;
-        private System.Windows.Forms.Label ClientMobilePhoneLabel;
-        private System.Windows.Forms.Label ClientBusinessNameLabel;
-        private System.Windows.Forms.Label ClientEmailLabel;
-        private System.Windows.Forms.TextBox ClientAddressTextBox;
-        private System.Windows.Forms.TextBox ClientLandLineTextBox;
-        private System.Windows.Forms.TextBox ClientMobilePhoneTextBox;
-        private System.Windows.Forms.TextBox ClientEmailTextBox;
-        private System.Windows.Forms.TextBox ClientBusinessNameTextBox;
-        private System.Windows.Forms.TextBox ClientNameTextBox;
-        private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.GroupBox JobDetailsGroupBox;
-        private System.Windows.Forms.Label AmountLabel;
-        private System.Windows.Forms.TextBox AmountTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox JobLocationTextBox;
-        private System.Windows.Forms.CheckBox CompletionCheckBox;
-        private System.Windows.Forms.Label JobShortDescriptionLabel;
-        private System.Windows.Forms.TextBox JobShortDescriptionTextBox;
-        private System.Windows.Forms.DataGridView DataGridView;
-        private System.Windows.Forms.Button ImportButton;
-        private System.Windows.Forms.TextBox JobPriorityTextBox;
+		private System.Windows.Forms.Button PrintButton;
+		private System.Windows.Forms.Button ExportButton;
+		private System.Windows.Forms.GroupBox ClientDetailsGroupBox;
+		private System.Windows.Forms.Label ClientNameLabel;
+		private System.Windows.Forms.Label ClientAddressLabel;
+		private System.Windows.Forms.Label ClientLandLineLabel;
+		private System.Windows.Forms.Label ClientMobilePhoneLabel;
+		private System.Windows.Forms.Label ClientBusinessNameLabel;
+		private System.Windows.Forms.Label ClientEmailLabel;
+		private System.Windows.Forms.TextBox ClientAddressTextBox;
+		private System.Windows.Forms.TextBox ClientLandLineTextBox;
+		private System.Windows.Forms.TextBox ClientMobilePhoneTextBox;
+		private System.Windows.Forms.TextBox ClientEmailTextBox;
+		private System.Windows.Forms.TextBox ClientBusinessNameTextBox;
+		private System.Windows.Forms.TextBox ClientNameTextBox;
+		private System.Windows.Forms.Button UpdateButton;
+		private System.Windows.Forms.GroupBox JobDetailsGroupBox;
+		private System.Windows.Forms.Label AmountLabel;
+		private System.Windows.Forms.TextBox AmountTextBox;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox JobLocationTextBox;
+		private System.Windows.Forms.CheckBox CompletionCheckBox;
+		private System.Windows.Forms.Label JobShortDescriptionLabel;
+		private System.Windows.Forms.TextBox JobShortDescriptionTextBox;
+		private System.Windows.Forms.DataGridView DataGridView;
+		private System.Windows.Forms.Button ImportButton;
+		private System.Windows.Forms.TextBox JobPriorityTextBox;
 		private System.Windows.Forms.DateTimePicker JobDateTimePicker;
 		private System.Windows.Forms.Label JobDateAndTimeLabel;
 	}

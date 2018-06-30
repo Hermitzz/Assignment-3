@@ -50,10 +50,10 @@ namespace WindowsFormsApp2
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
 
-							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
-							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
-							while(reader.Read())
-							{
+                            // iterating to read and add Contractor IDs found by reader to the combobox items collection.
+                            // reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
+                            while (reader.Read())
+                            {
 								ContractorComboBox.Items.Add(reader.GetValue(0));
 							}
 							conn.Close();
@@ -157,6 +157,7 @@ namespace WindowsFormsApp2
 			}
 		}
 
+		// below is a method to set the CurrentlySelectedRow to wherever a cell is clicked
 		private void JobDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex != JobDataGridView.TopLeftHeaderCell.RowIndex)
@@ -164,6 +165,25 @@ namespace WindowsFormsApp2
 
 				CurrentlySelectedRow = JobDataGridView.Rows[e.RowIndex];
 			}
+		}
+
+		// below are tooltips to increase software usability
+		private void ContractorComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorComboBox, "Choose from available contractors using ContractorId");
+		}
+
+		private void JobDataGridView_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(JobDataGridView, "Select a job by clicking a cell in the row");
+		}
+
+		private void AssignButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AssignButton, "Assign the contractor specified to the selected job");
 		}
 	}
 }

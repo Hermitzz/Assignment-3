@@ -48,13 +48,12 @@ namespace WindowsFormsApp2
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
 
-                            // iterating to read and add Contractor IDs found by reader to the combobox items collection.
-                            // reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
-
-                            while(reader.Read())
-                            {
-                                ContractorComboBox.Items.Add(reader.GetValue(0));
-                            }
+							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
+							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
+							while(reader.Read())
+                            { 
+								ContractorComboBox.Items.Add(reader.GetValue(0));
+							}
 							conn.Close();
 						}
 
@@ -90,8 +89,8 @@ namespace WindowsFormsApp2
 							SqlDataReader reader = cmd.ExecuteReader();
 
 							// taking the table returned by the executed reader and making a DataTable out of it, then passing DataTable to the ExportFunction()
-							//DataTable results = reader.GetSchemaTable();
-							//conn.Close();
+							DataTable results = reader.GetSchemaTable();
+							
 							ExportFunction(reader);
 						}
 
@@ -150,8 +149,6 @@ namespace WindowsFormsApp2
 
             ExportClients();
             ExportContractors();
-
-               
 		}
 
         private void ExportClients()
@@ -292,7 +289,5 @@ namespace WindowsFormsApp2
 			ToolTip toolTip = new ToolTip();
 			toolTip.SetToolTip(ContractorComboBox, "Choose from available contractors using ContractorId");
 		}
-
-
 	}
 }

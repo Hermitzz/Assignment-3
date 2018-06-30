@@ -37,3 +37,16 @@ C:\Users\Administrator\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debu
 C:\Users\Administrator\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.exe
 C:\Users\Administrator\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.pdb
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorDataBase.mdf
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorDataBase_log.ldf
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.exe.config
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.exe
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\bin\Debug\ContractorSoftware.pdb
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csprojResolveAssemblyReference.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.ContractorSoftware.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.PrintForm.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.Properties.Resources.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.GenerateResource.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.csproj.CoreCompileInputs.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.exe
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\ContractorSoftware\obj\Debug\ContractorSoftware.pdb

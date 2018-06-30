@@ -64,3 +64,17 @@ C:\Users\Administrator\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\
 C:\Users\Administrator\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\Administrator\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\Assignment3.csprojResolveAssemblyReference.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AssignJobForm.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Export.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.HomeBaseForm.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\Assignment3.csproj.GenerateResource.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\bin\Debug\DataBase.mdf
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\bin\Debug\DataBase_log.ldf
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\Soulstyle\Documents\GitHub\Assignment-3\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
