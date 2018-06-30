@@ -81,6 +81,7 @@
 			this.ExportButton.TabIndex = 54;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// ClientDetailsGroupBox
 			// 

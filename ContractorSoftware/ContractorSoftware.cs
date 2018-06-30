@@ -342,6 +342,11 @@ namespace ContractorSoftware
 			}
 		}
 
+		private void ExportButton_Click(object sender, EventArgs e)
+		{
+			// to be implemented
+		}
+
 		// below are tooltips to increase software usability
 		private void ImportButton_MouseHover(object sender, EventArgs e)
 		{
