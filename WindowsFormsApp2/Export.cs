@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,10 @@ namespace WindowsFormsApp2
 
 		public Export()
 		{
-			csb = new SqlConnectionStringBuilder();
-			csb.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; 
-                                    AttachDbFilename = C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\WindowsFormsApp2\DataBase.mdf; 
-                                    Integrated Security = True";
+			string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "DataBase.mdf");
+			string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
+								filePath + @"; Integrated Security = True";
+			csb.ConnectionString = connection;
 			InitializeComponent();
 		}
 

@@ -54,6 +54,8 @@
 			this.ContractorNameLabel = new System.Windows.Forms.Label();
 			this.ContractorAddressLabel = new System.Windows.Forms.Label();
 			this.AddJobGroupBox = new System.Windows.Forms.GroupBox();
+			this.ClientIDTextBox = new System.Windows.Forms.TextBox();
+			this.ClientIDLabel = new System.Windows.Forms.Label();
 			this.JobPriorityComboBox = new System.Windows.Forms.ComboBox();
 			this.JobShortDescriptionLabel = new System.Windows.Forms.Label();
 			this.JobLocationLabel = new System.Windows.Forms.Label();
@@ -81,8 +83,6 @@
 			this.contractorsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.ContractorsTableAdapter();
 			this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.jobsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.JobsTableAdapter();
-			this.ClientIDLabel = new System.Windows.Forms.Label();
-			this.ClientIDTextBox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
 			this.AddClientGroupBox.SuspendLayout();
 			this.AddContractorGroupBox.SuspendLayout();
@@ -207,6 +207,7 @@
 			this.AddClientRadioButton.Text = "Add Client";
 			this.AddClientRadioButton.UseVisualStyleBackColor = true;
 			this.AddClientRadioButton.CheckedChanged += new System.EventHandler(this.AddClientRadioButton_CheckedChanged);
+			this.AddClientRadioButton.Click += new System.EventHandler(this.AddClientRadioButton_CheckedChanged);
 			// 
 			// AddContractorRadioButton
 			// 
@@ -219,6 +220,7 @@
 			this.AddContractorRadioButton.Text = "Add Contractor";
 			this.AddContractorRadioButton.UseVisualStyleBackColor = true;
 			this.AddContractorRadioButton.CheckedChanged += new System.EventHandler(this.AddContractorRadioButton_CheckedChanged);
+			this.AddContractorRadioButton.Click += new System.EventHandler(this.AddContractorRadioButton_CheckedChanged);
 			// 
 			// DataGridView
 			// 
@@ -251,7 +253,7 @@
 			this.ExportButton.TabIndex = 29;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
-			//this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// AssignJobButton
 			// 
@@ -262,7 +264,7 @@
 			this.AssignJobButton.TabIndex = 31;
 			this.AssignJobButton.Text = "Assign Job";
 			this.AssignJobButton.UseVisualStyleBackColor = true;
-			//this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
+			this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
 			// 
 			// AddButton
 			// 
@@ -273,7 +275,7 @@
 			this.AddButton.TabIndex = 32;
 			this.AddButton.Text = "Add";
 			this.AddButton.UseVisualStyleBackColor = true;
-			//this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+			this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// AddClientGroupBox
 			// 
@@ -358,6 +360,23 @@
 			this.AddJobGroupBox.TabIndex = 42;
 			this.AddJobGroupBox.TabStop = false;
 			this.AddJobGroupBox.Text = "Add Job";
+			// 
+			// ClientIDTextBox
+			// 
+			this.ClientIDTextBox.Location = new System.Drawing.Point(154, 24);
+			this.ClientIDTextBox.Name = "ClientIDTextBox";
+			this.ClientIDTextBox.Size = new System.Drawing.Size(100, 20);
+			this.ClientIDTextBox.TabIndex = 27;
+			// 
+			// ClientIDLabel
+			// 
+			this.ClientIDLabel.AutoSize = true;
+			this.ClientIDLabel.Enabled = false;
+			this.ClientIDLabel.Location = new System.Drawing.Point(10, 27);
+			this.ClientIDLabel.Name = "ClientIDLabel";
+			this.ClientIDLabel.Size = new System.Drawing.Size(44, 13);
+			this.ClientIDLabel.TabIndex = 26;
+			this.ClientIDLabel.Text = "ClientID";
 			// 
 			// JobPriorityComboBox
 			// 
@@ -527,7 +546,7 @@
 			this.AddJobRadioButton.TabStop = true;
 			this.AddJobRadioButton.Text = "Add Job";
 			this.AddJobRadioButton.UseVisualStyleBackColor = true;
-			//this.AddJobRadioButton.CheckedChanged += new System.EventHandler(this.AddJobRadioButton_CheckedChanged);
+			this.AddJobRadioButton.Click += new System.EventHandler(this.AddJobRadioButton_CheckedChanged);
 			// 
 			// dataBaseDataSet
 			// 
@@ -565,23 +584,6 @@
 			// jobsTableAdapter
 			// 
 			this.jobsTableAdapter.ClearBeforeFill = true;
-			// 
-			// ClientIDLabel
-			// 
-			this.ClientIDLabel.AutoSize = true;
-			this.ClientIDLabel.Enabled = false;
-			this.ClientIDLabel.Location = new System.Drawing.Point(10, 27);
-			this.ClientIDLabel.Name = "ClientIDLabel";
-			this.ClientIDLabel.Size = new System.Drawing.Size(44, 13);
-			this.ClientIDLabel.TabIndex = 26;
-			this.ClientIDLabel.Text = "ClientID";
-			// 
-			// ClientIDTextBox
-			// 
-			this.ClientIDTextBox.Location = new System.Drawing.Point(154, 24);
-			this.ClientIDTextBox.Name = "ClientIDTextBox";
-			this.ClientIDTextBox.Size = new System.Drawing.Size(100, 20);
-			this.ClientIDTextBox.TabIndex = 27;
 			// 
 			// HomeBaseForm
 			// 
