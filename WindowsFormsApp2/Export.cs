@@ -26,12 +26,6 @@ namespace WindowsFormsApp2
 			InitializeComponent();
 		}
 
-		private void ExportButton_Click(object sender, EventArgs e)
-		{
-			// need table adapters to work so i can make a custom select query that takes date and id values from form.
-			
-		}
-
 		private void Export_Load(object sender, EventArgs e)
 		{
 			using (conn = new SqlConnection(csb.ConnectionString))
@@ -65,6 +59,45 @@ namespace WindowsFormsApp2
 					MessageBox.Show(ex.Message);
 				}
 			}
+		}
+
+
+		private void ExportButton_Click(object sender, EventArgs e)
+		{
+			// need table adapters to work so i can make a custom select query that takes date and id values from form.
+			using (conn = new SqlConnection(csb.ConnectionString))
+			{
+				try
+				{
+					conn.Open();
+					if (conn.State == ConnectionState.Open) // if connection.Open was successful
+					{
+						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Contractors WHERE dateAndTime > " + FromDatePicker.Value + " AND dateAndTime < " + ToDatePicker.Value + " AND " +
+							"ContractorId = " + ContractorComboBox.SelectedValue))
+						{
+							cmd.Connection = conn;
+							SqlDataReader reader = cmd.ExecuteReader();
+							DataTable results = reader.GetSchemaTable();
+							conn.Close();
+							ExportFunction(results);
+						}
+
+					}
+					else
+					{
+						MessageBox.Show("Connection failed.");
+					}
+				}
+				catch (SqlException ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+			}
+		}
+
+		private void ExportFunction(DataTable results)
+		{
+			// here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
 		}
 	}
 }
