@@ -48,14 +48,13 @@ namespace WindowsFormsApp2
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
 
-							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
-							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
-							for (int Index = 0; Index < reader.VisibleFieldCount / reader.FieldCount; Index++)
-							{
-								reader.Read();
-								int conId = reader.GetInt32(0);
-								ContractorComboBox.Items.Add(conId);
-							}
+                            // iterating to read and add Contractor IDs found by reader to the combobox items collection.
+                            // reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
+
+                            while(reader.Read())
+                            {
+                                ContractorComboBox.Items.Add(reader.GetValue(0));
+                            }
 							conn.Close();
 						}
 
@@ -82,18 +81,21 @@ namespace WindowsFormsApp2
 					conn.Open();
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
-						// getting Jobs between dates in from and to datepickers as well as jobs with the selected contractor id in the ContractorComboBox
-						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Jobs WHERE CONVERT(int, dateAndTime) > " + FromDatePicker.Value.ToShortDateString() + " AND CONVERT(int, dateAndTime) < " + ToDatePicker.Value.ToShortDateString() + " AND " +
-							"ContractorId = " + ContractorComboBox.Text.ToString()))
-						{
+                        MessageBox.Show("From: " + FromDatePicker.Value.ToShortDateString());
+                        MessageBox.Show("To: " + ToDatePicker.Value.ToShortDateString());
+
+                        // getting Jobs between dates in from and to datepickers as well as jobs with the selected contractor id in the ContractorComboBox
+                        using (SqlCommand cmd = new SqlCommand(@"SELECT * FROM Jobs WHERE dateAndTime >= '" + FromDatePicker.Value.ToShortDateString() + @"' AND dateAndTime <= '" + ToDatePicker.Value.ToShortDateString() + @"' AND " +
+                        	"ContractorId = " + ContractorComboBox.Text.ToString()))
+                        {
 							// establishing connection and making reader to read returned data from query
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
 
 							// taking the table returned by the executed reader and making a DataTable out of it, then passing DataTable to the ExportFunction()
-							DataTable results = reader.GetSchemaTable();
-							conn.Close();
-							ExportFunction(results);
+							//DataTable results = reader.GetSchemaTable();
+							//conn.Close();
+							ExportFunction(reader);
 						}
 
 					}
@@ -109,10 +111,38 @@ namespace WindowsFormsApp2
 			}
 		}
 
-		private void ExportFunction(DataTable results)
+		private void ExportFunction(SqlDataReader results)
 		{
-			// here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
-			MessageBox.Show("Export Success!.");
+            // here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
+            StringBuilder sb = new StringBuilder();
+            StreamWriter sw = new StreamWriter(System.IO.Directory.GetCurrentDirectory() + "testfile.csv");
+
+            //get columns
+            var columnNames = Enumerable.Range(0, results.FieldCount)
+                .Select(results.GetName)
+                .ToList();
+
+            //headers
+            sb.Append(string.Join(",", columnNames));
+            sb.AppendLine();
+            while (results.Read())
+            {
+                
+                var values = Enumerable.Range(0, results.FieldCount)
+                .Select(results.GetValue)
+                .ToList();
+
+                sb.Append(string.Join(",", values));
+                sb.AppendLine();
+                
+            }
+
+            MessageBox.Show(sb.ToString());
+
+            sw.Write(sb.ToString());
+            sw.Close();
+            conn.Close();
+            MessageBox.Show("Export Success!.");
 		}
 	}
 }
