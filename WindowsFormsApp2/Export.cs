@@ -15,7 +15,7 @@ namespace WindowsFormsApp2
 	public partial class Export : Form
 	{
 		SqlConnection conn;
-		SqlConnectionStringBuilder csb;
+		private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
 
 		public Export()
 		{

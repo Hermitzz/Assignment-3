@@ -229,7 +229,7 @@ namespace WindowsFormsApp2
                                     JobDateTimeTextBox.Text + "', '" +
                                     JobPriorityComboBox.Text + "', '" +
                                     ClientIDTextBox.Text + "', '" +
-                                    "1" + "', '" +
+                                    "2" + "', '" +
                                     "" + "', '" +
                                     0 + "')"))
                                 {
