@@ -120,8 +120,8 @@ namespace WindowsFormsApp2
         {
 			if (AddClientRadioButton.Checked == true)
 			{
-				if (ClientNameTextBox.ToString().Trim().Length != 0 && ClientAddressTextBox.ToString().Trim().Length != 0 && ClientLandLineTextBox.ToString().Trim().Length != 0 &&
-					ClientMobilePhoneTextBox.ToString().Trim().Length != 0 && ClientBusinessNameTextBox.ToString().Trim().Length != 0 && ClientEmailTextBox.ToString().Trim().Length != 0)
+				if (ClientNameTextBox.Text.Trim() != "" && ClientAddressTextBox.Text.Trim() != "" && ClientLandLineTextBox.Text.Trim() != "" &&
+					ClientMobilePhoneTextBox.Text.Trim() != "" && ClientBusinessNameTextBox.Text.Trim() != "" && ClientEmailTextBox.Text.Trim() != "")
 				{
 					DataBaseDataSet.ClientsRow NewClientsRow = dataBaseDataSet.Clients.NewClientsRow();
 					NewClientsRow.name = ClientNameTextBox.Text.ToString();
@@ -141,8 +141,8 @@ namespace WindowsFormsApp2
 			}
 			else if (AddContractorRadioButton.Checked == true)
 			{
-				if (ContractorNameTextBox.ToString().Trim().Length != 0 && ContractorAddressTextBox.ToString().Trim().Length != 0 && ContractorLandLineTextBox.ToString().Trim().Length != 0 &&
-					ContractorMobilePhoneTextBox.ToString().Trim().Length != 0 && ContractorEmployeeIdTextBox.ToString().Trim().Length != 0 && ContractorEmailTextBox.ToString().Trim().Length != 0)
+				if (ContractorNameTextBox.Text.Trim() != "" && ContractorAddressTextBox.Text.Trim() != "" && ContractorLandLineTextBox.Text.Trim() != "" &&
+					ContractorMobilePhoneTextBox.Text.Trim() != "" && ContractorEmployeeIdTextBox.Text.Trim() != "" && ContractorEmailTextBox.Text.Trim() != "")
 				{
 					DataBaseDataSet.ContractorsRow NewContractorRow = dataBaseDataSet.Contractors.NewContractorsRow();
 					NewContractorRow.name = ContractorNameTextBox.Text.ToString();
@@ -162,7 +162,7 @@ namespace WindowsFormsApp2
 			}
 			else if (AddJobRadioButton.Checked == true)
 			{
-				if (JobLocationTextBox.ToString().Trim().Length != 0 && JobDateTimeTextBox.ToString().Trim().Length != 0)
+				if (JobLocationTextBox.Text.Trim() != "" && JobDateTimeTextBox.Text.Trim() != "")
 				{
 					DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
 					NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
