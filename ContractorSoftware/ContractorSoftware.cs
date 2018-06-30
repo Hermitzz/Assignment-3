@@ -34,7 +34,10 @@ namespace ContractorSoftware
 		{
             DataGridView.DataSource = bindingSource1;
             GetData("SELECT * from Jobs");
+
         }
+
+
 
         private void GetData(string selectCommand)
         {
@@ -76,6 +79,43 @@ namespace ContractorSoftware
             printForm.Show();
         }
 
+        DataGridViewRow CurrentlySelectedRow;
 
+        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != DataGridView.TopLeftHeaderCell.RowIndex)
+            {
+
+                CurrentlySelectedRow = DataGridView.Rows[e.RowIndex];
+
+                JobShortDescriptionTextBox.Text = CurrentlySelectedRow.Cells[1].Value.ToString();
+                JobLocationTextBox.Text = CurrentlySelectedRow.Cells[2].Value.ToString();
+                JobDateAndTimeTextBox.Text = CurrentlySelectedRow.Cells[3].Value.ToString();
+                JobPriorityTextBox.Text = CurrentlySelectedRow.Cells[4].Value.ToString();
+
+                String currentClientId = CurrentlySelectedRow.Cells[5].Value.ToString();
+                //TODO 
+                //use for loop to find the current client and show the client details
+                
+
+                String currentContractorId = CurrentlySelectedRow.Cells[6].Value.ToString();
+                //TODO
+                //user for loop to find the current contractor and show the contractor name in the print form
+
+                if (CurrentlySelectedRow.Cells[7].Value.ToString() == "0")
+                {
+                    CompletionCheckBox.Checked = false;
+                }
+                else
+                {
+                    CompletionCheckBox.Checked = true;
+                }
+
+
+
+
+            }
+        }
+       
     }
 }
