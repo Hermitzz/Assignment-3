@@ -47,8 +47,6 @@ namespace WindowsFormsApp2
 			AddJobGroupBox.Location = AddClientGroupBox.Location;
 			JobPriorityComboBox.SelectedIndex = 0;
 
-            DataGridView.DataSource = bindingSource1;
-            GetData("SELECT * from Clients");
         }
 
 		// makes the selected groupbox visible and the others invisible
@@ -62,7 +60,8 @@ namespace WindowsFormsApp2
                 AddJobGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				//DataGridView.DataSource = dataBaseDataSet.Clients;
+                DataGridView.DataSource = bindingSource1;
+                GetData("SELECT * from Clients");
             }
         }
 
@@ -75,8 +74,10 @@ namespace WindowsFormsApp2
 				AddJobGroupBox.Visible = false;
                 AddClientGroupBox.Visible = false;
 
-				//DataGridView.DataSource = dataBaseDataSet.Contractors;
-			}
+                DataGridView.DataSource = bindingSource1;
+                GetData("SELECT * from Contractors");
+
+            }
         }
 
         private void AddJobRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -88,8 +89,11 @@ namespace WindowsFormsApp2
 				AddClientGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				//DataGridView.DataSource = dataBaseDataSet.Jobs;
-			}
+
+                DataGridView.DataSource = bindingSource1;
+                GetData("SELECT * from Jobs");
+
+            }
         }
 
 		// checks which option is currently selected and adds data from the fields to the database.
@@ -153,20 +157,51 @@ namespace WindowsFormsApp2
 				if (ContractorNameTextBox.Text.Trim() != "" && ContractorAddressTextBox.Text.Trim() != "" && ContractorLandLineTextBox.Text.Trim() != "" &&
 					ContractorMobilePhoneTextBox.Text.Trim() != "" && ContractorEmployeeIdTextBox.Text.Trim() != "" && ContractorEmailTextBox.Text.Trim() != "")
 				{
-					DataBaseDataSet.ContractorsRow NewContractorRow = dataBaseDataSet.Contractors.NewContractorsRow();
-					NewContractorRow.name = ContractorNameTextBox.Text.ToString();
-					NewContractorRow.address = ContractorAddressTextBox.Text.ToString();
-					NewContractorRow.landLine = ContractorLandLineTextBox.Text.ToString();
-					NewContractorRow.mobilePhone = ContractorMobilePhoneTextBox.Text.ToString();
-					NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
-					NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
-					this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
-					//this.contractorsTableAdapter.Insert(NewContractorRow.name, NewContractorRow.address, NewContractorRow.landLine, NewContractorRow.mobilePhone,
-					//	NewContractorRow.employeeId, NewContractorRow.email);
-					this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
-					dataBaseDataSet.AcceptChanges();
+                    using (conn = new SqlConnection(csb.ConnectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            if (conn.State == ConnectionState.Open) // if connection.Open was successful
+                            {
+                                using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
+                                    "(name, address, landLine, mobilePhone, employeeId, email) " +
+                                    "VALUES ('" + ContractorNameTextBox.Text + "', '" +
+                                    ContractorAddressTextBox.Text + "', '" +
+                                    ContractorLandLineTextBox.Text + "', '" +
+                                    ContractorMobilePhoneTextBox.Text + "', '" +
+                                    ContractorEmployeeIdTextBox.Text + "', '" +
+                                    ContractorEmailTextBox.Text + "')"))
+                                {
+                                    cmd.CommandType = CommandType.Text;
+                                    cmd.Connection = conn;
+                                    int a = cmd.ExecuteNonQuery();
+                                    if (a > 0)
+                                    {
+                                        GetData(dataAdapter.SelectCommand.CommandText);
+                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
+                                        MessageBox.Show("Record Successfully Added!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Adding Record Failed!");
+                                    }
+                                    conn.Close();
+                                }
 
-				}
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed.");
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+
+                }
 				else
 				{
 					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,20 +211,52 @@ namespace WindowsFormsApp2
 			{
 				if (JobLocationTextBox.Text.Trim() != "" && JobDateTimeTextBox.Text.Trim() != "")
 				{
-					DataBaseDataSet.JobsRow NewJobRow = dataBaseDataSet.Jobs.NewJobsRow();
-					NewJobRow.clientId = Int32.Parse(ClientIDTextBox.Text);
-					NewJobRow.shortDescription = JobShortDescriptionTextBox.Text.ToString();
-					NewJobRow.location = JobLocationTextBox.Text.ToString();
-					NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
-					NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
-					NewJobRow.jobCompleted = false;
-					NewJobRow.amountCharged = 0;
-					NewJobRow.jobId = Math.Abs(NewJobRow.jobId);
-					this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
-					//this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
-					dataBaseDataSet.AcceptChanges();
-					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
-				}
+                    using (conn = new SqlConnection(csb.ConnectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            if (conn.State == ConnectionState.Open) // if connection.Open was successful
+                            {
+                                using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
+                                    "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
+                                    "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
+                                    JobLocationTextBox.Text + "', '" +
+                                    JobDateTimeTextBox.Text + "', '" +
+                                    JobPriorityComboBox.Text + "', '" +
+                                    ClientIDTextBox.Text + "', '" +
+                                    "1" + "', '" +
+                                    "" + "', '" +
+                                    0 + "')"))
+                                {
+                                    cmd.CommandType = CommandType.Text;
+                                    cmd.Connection = conn;
+                                    int a = cmd.ExecuteNonQuery();
+                                    if (a > 0)
+                                    {
+                                        GetData(dataAdapter.SelectCommand.CommandText);
+                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
+                                        MessageBox.Show("Record Successfully Added!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Adding Record Failed!");
+                                    }
+                                    conn.Close();
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed.");
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
 				else
 				{
 					MessageBox.Show("Cannot add jobs without location, date and time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -247,7 +314,7 @@ namespace WindowsFormsApp2
 
 		private void AssignJobButton_Click(object sender, EventArgs e)
 		{
-			AssignJobForm newAssignmentForm = new AssignJobForm();
+			AssignJobForm newAssignmentForm = new AssignJobForm(dataBaseDataSet, contractorsTableAdapter, jobsTableAdapter);
 			newAssignmentForm.ShowDialog();
 		}
 
