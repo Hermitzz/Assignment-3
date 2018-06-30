@@ -48,3 +48,5 @@ C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\WindowsFormsApp2\obj\
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AssignJobForm.resources
 C:\Users\liams\Downloads\Assignment3 Copy\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Export.resources
+D:\My Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AssignJobForm.resources
+D:\My Documents\GitHub\Assignment-3\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Export.resources
