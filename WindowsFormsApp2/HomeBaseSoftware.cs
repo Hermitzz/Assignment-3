@@ -133,7 +133,6 @@ namespace WindowsFormsApp2
                             if (conn.State == ConnectionState.Open) // if connection.Open was successful
                             {
 								// inserting field values into the Clients table in the database using the dataAdapter
-<<<<<<< HEAD
 								using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
 									"(name, address, landLine, mobilePhone, businessName, email) " +
 									"VALUES ('" + ClientNameTextBox.Text + "', '" +
@@ -179,44 +178,6 @@ namespace WindowsFormsApp2
 						}
 					}
 				}
-=======
-                                using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
-                                    "(name, address, landLine, mobilePhone, businessName, email) " +
-                                    "VALUES ('" + ClientNameTextBox.Text + "', '" +
-                                    ClientAddressTextBox.Text + "', '" +
-                                    ClientLandLineTextBox.Text + "', '" +
-                                    ClientMobilePhoneTextBox.Text + "', '" +
-                                    ClientBusinessNameTextBox.Text + "', '" +
-                                    ClientEmailTextBox.Text + "')"))
-                                {
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.Connection = conn;
-                                    int a = cmd.ExecuteNonQuery();
-                                    if (a>0)
-                                    {
-                                        GetData(dataAdapter.SelectCommand.CommandText);
-                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
-                                        MessageBox.Show("Record Successfully Added!");
-                                    } else
-                                    {
-                                        MessageBox.Show("Adding Record Failed!");
-                                    }
-                                    conn.Close();
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed.");
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
->>>>>>> parent of 96aa473... small changes here and there
 				else
 				{
 					MessageBox.Show("Cannot add clients with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -238,7 +199,6 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Contractors table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
-<<<<<<< HEAD
 									"(name, address, landLine, mobilePhone, employeeId, email) " +
 									"VALUES ('" + ContractorNameTextBox.Text + "', '" +
 									ContractorAddressTextBox.Text + "', '" +
@@ -285,46 +245,7 @@ namespace WindowsFormsApp2
 					}
 
 				}
-=======
-                                    "(name, address, landLine, mobilePhone, employeeId, email) " +
-                                    "VALUES ('" + ContractorNameTextBox.Text + "', '" +
-                                    ContractorAddressTextBox.Text + "', '" +
-                                    ContractorLandLineTextBox.Text + "', '" +
-                                    ContractorMobilePhoneTextBox.Text + "', '" +
-                                    ContractorEmployeeIdTextBox.Text + "', '" +
-                                    ContractorEmailTextBox.Text + "')"))
-                                {
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.Connection = conn;
-                                    int a = cmd.ExecuteNonQuery();
-                                    if (a > 0)
-                                    {
-                                        GetData(dataAdapter.SelectCommand.CommandText);
-                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
-                                        MessageBox.Show("Record Successfully Added!");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Adding Record Failed!");
-                                    }
-                                    conn.Close();
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed.");
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-
-                }
->>>>>>> parent of 96aa473... small changes here and there
-				else
+                else
 				{
 					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
@@ -344,7 +265,6 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Jobs table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
-<<<<<<< HEAD
 									"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
 									"VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
 									JobLocationTextBox.Text + "', '" +
@@ -391,46 +311,6 @@ namespace WindowsFormsApp2
 						}
 					}
 				}
-=======
-                                    "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
-                                    "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
-                                    JobLocationTextBox.Text + "', '" +
-                                    DateTimePicker.Value + "', '" +
-                                    JobPriorityComboBox.Text + "', '" +
-                                    ClientIDTextBox.Text + "', '" +
-                                    "2" + "', '" +
-                                    "" + "', '" +
-                                    0 + "')"))
-                                {
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.Connection = conn;
-                                    int a = cmd.ExecuteNonQuery();
-                                    if (a > 0)
-                                    {
-                                        GetData(dataAdapter.SelectCommand.CommandText);
-                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
-                                        MessageBox.Show("Record Successfully Added!");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Adding Record Failed!");
-                                    }
-                                    conn.Close();
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed.");
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
->>>>>>> parent of 96aa473... small changes here and there
 				else
 				{
 					MessageBox.Show("Cannot add jobs without location, date and time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
