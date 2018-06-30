@@ -94,25 +94,26 @@ namespace WindowsFormsApp2
 						conn.Open();
 						if (conn.State == ConnectionState.Open) // if connection.Open was successful
 						{
-							// updating Job records to assign a ContractorId to the job in the CurrentlySelectedRow
-							using (SqlCommand cmd = new SqlCommand("UPDATE Jobs SET ContractorId = " + ContractorComboBox.SelectedValue + " WHERE jobId = " + CurrentlySelectedRow.Cells[0]))
-							{
-								cmd.CommandType = CommandType.Text;
-								cmd.Connection = conn;
-								int a = cmd.ExecuteNonQuery();
-								if (a > 0)
-								{
-									// using dataAdapter to update the bindingsource
-									GetData(dataAdapter.SelectCommand.CommandText);
-									dataAdapter.Update((DataTable)bindingSource1.DataSource);
-									MessageBox.Show("Record Successfully Updated!");
-								}
-								else
-								{
-									MessageBox.Show("Updating Record Failed!");
-								}
-								conn.Close();
-							}
+                            
+                            // updating Job records to assign a ContractorId to the job in the CurrentlySelectedRow
+                            using (SqlCommand cmd = new SqlCommand("UPDATE Jobs SET ContractorId = " + ContractorComboBox.SelectedItem.ToString() + " WHERE jobId = " + CurrentlySelectedRow.Cells[0].Value.ToString()))
+                            {
+                                cmd.CommandType = CommandType.Text;
+                                cmd.Connection = conn;
+                                int a = cmd.ExecuteNonQuery();
+                                if (a > 0)
+                                {
+                                    // using dataAdapter to update the bindingsource
+                                    GetData(dataAdapter.SelectCommand.CommandText);
+                                    dataAdapter.Update((DataTable)bindingSource1.DataSource);
+                                    MessageBox.Show("Record Successfully Updated!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Updating Record Failed!");
+                                }
+                                conn.Close();
+                            }
 
 						}
 						else
