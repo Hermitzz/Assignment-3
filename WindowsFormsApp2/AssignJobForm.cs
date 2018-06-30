@@ -15,14 +15,18 @@ namespace WindowsFormsApp2
 {
 	public partial class AssignJobForm : Form
 	{
+		// variables for sqlconnections
 		private SqlConnection conn;
 		private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
 		private BindingSource bindingSource1 = new BindingSource();
 		private SqlDataAdapter dataAdapter = new SqlDataAdapter();
+
+		// CurrentlySelectedRow keeps track of which row is highlighted in the JobDataGridView
 		DataGridViewRow CurrentlySelectedRow;
 
 		public AssignJobForm()
 		{
+			// setting connection string
 			string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "DataBase.mdf");
 			string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
 								filePath + @"; Integrated Security = True";
@@ -39,14 +43,19 @@ namespace WindowsFormsApp2
 					conn.Open();
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
+						// getting all from Contractors table
 						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Contractors"))
 						{
+							// establishing connection and making reader to read returned data from query
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
+
+							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
+							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
 							for (int Index = 0; Index < reader.VisibleFieldCount / reader.FieldCount; Index++)
 							{
 								reader.Read();
-								string conId = reader.GetInt32(0).ToString();
+								int conId = reader.GetInt32(0);
 								ContractorComboBox.Items.Add(conId);
 							}
 							conn.Close();
@@ -63,12 +72,15 @@ namespace WindowsFormsApp2
 					MessageBox.Show(ex.Message);
 				}
 			}
+
+			// setting the datasource for the JobDataGridView and then getting data from the datasource to populate the view
 			JobDataGridView.DataSource = bindingSource1;
 			GetData("SELECT * from Jobs");
 		}
 
 		private void AssignButton_Click(object sender, EventArgs e)
 		{
+			// checking to see if a row in the JobDataGridView is selected
 			if (CurrentlySelectedRow == null)
 			{
 				MessageBox.Show("Please Select a job to assign a contractor to", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,6 +94,7 @@ namespace WindowsFormsApp2
 						conn.Open();
 						if (conn.State == ConnectionState.Open) // if connection.Open was successful
 						{
+							// updating Job records to assign a ContractorId to the job in the CurrentlySelectedRow
 							using (SqlCommand cmd = new SqlCommand("UPDATE Jobs SET ContractorId = " + ContractorComboBox.SelectedValue + " WHERE jobId = " + CurrentlySelectedRow.Cells[0]))
 							{
 								cmd.CommandType = CommandType.Text;
@@ -89,6 +102,7 @@ namespace WindowsFormsApp2
 								int a = cmd.ExecuteNonQuery();
 								if (a > 0)
 								{
+									// using dataAdapter to update the bindingsource
 									GetData(dataAdapter.SelectCommand.CommandText);
 									dataAdapter.Update((DataTable)bindingSource1.DataSource);
 									MessageBox.Show("Record Successfully Updated!");
@@ -140,9 +154,7 @@ namespace WindowsFormsApp2
 			}
 			catch (SqlException)
 			{
-				MessageBox.Show("To run this example, replace the value of the " +
-					"connectionString variable with a connection string that is " +
-					"valid for your system.");
+				MessageBox.Show("SqlException");
 			}
 		}
 

@@ -14,11 +14,13 @@ namespace WindowsFormsApp2
 {
 	public partial class Export : Form
 	{
+		// variables for sqlconnections
 		SqlConnection conn;
 		private SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
 
 		public Export()
 		{
+			// setting connection string
 			string filePath = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "DataBase.mdf");
 			string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
 								filePath + @"; Integrated Security = True";
@@ -35,14 +37,19 @@ namespace WindowsFormsApp2
 					conn.Open();
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
+						// getting all from Contractors table
 						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Contractors"))
 						{
+							// establishing connection and making reader to read returned data from query
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
+
+							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
+							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
 							for (int Index = 0; Index < reader.VisibleFieldCount / reader.FieldCount; Index++)
 							{
 								reader.Read();
-								string conId = reader.GetString(1) + " " + reader.GetInt32(0).ToString();
+								int conId = reader.GetInt32(0);
 								ContractorComboBox.Items.Add(conId);
 							}
 							conn.Close();
@@ -64,7 +71,6 @@ namespace WindowsFormsApp2
 
 		private void ExportButton_Click(object sender, EventArgs e)
 		{
-			// need table adapters to work so i can make a custom select query that takes date and id values from form.
 			using (conn = new SqlConnection(csb.ConnectionString))
 			{
 				try
@@ -72,11 +78,15 @@ namespace WindowsFormsApp2
 					conn.Open();
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
-						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Contractors WHERE dateAndTime > " + FromDatePicker.Value + " AND dateAndTime < " + ToDatePicker.Value + " AND " +
+						// getting Jobs between dates in from and to datepickers as well as jobs with the selected contractor id in the ContractorComboBox
+						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Jobs WHERE dateAndTime > " + FromDatePicker.Value + " AND dateAndTime < " + ToDatePicker.Value + " AND " +
 							"ContractorId = " + ContractorComboBox.SelectedValue))
 						{
+							// establishing connection and making reader to read returned data from query
 							cmd.Connection = conn;
 							SqlDataReader reader = cmd.ExecuteReader();
+
+							// taking the table returned by the executed reader and making a DataTable out of it, then passing DataTable to the ExportFunction()
 							DataTable results = reader.GetSchemaTable();
 							conn.Close();
 							ExportFunction(results);
