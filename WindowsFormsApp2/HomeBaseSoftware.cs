@@ -135,42 +135,51 @@ namespace WindowsFormsApp2
                             if (conn.State == ConnectionState.Open) // if connection.Open was successful
                             {
 								// inserting field values into the Clients table in the database using the dataAdapter
-                                using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
-                                    "(name, address, landLine, mobilePhone, businessName, email) " +
-                                    "VALUES ('" + ClientNameTextBox.Text + "', '" +
-                                    ClientAddressTextBox.Text + "', '" +
-                                    ClientLandLineTextBox.Text + "', '" +
-                                    ClientMobilePhoneTextBox.Text + "', '" +
-                                    ClientBusinessNameTextBox.Text + "', '" +
-                                    ClientEmailTextBox.Text + "')"))
-                                {
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.Connection = conn;
-                                    int a = cmd.ExecuteNonQuery();
-                                    if (a>0)
-                                    {
-                                        GetData(dataAdapter.SelectCommand.CommandText);
-                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
-                                        MessageBox.Show("Record Successfully Added!");
-                                    } else
-                                    {
-                                        MessageBox.Show("Adding Record Failed!");
-                                    }
-                                    conn.Close();
-                                }
+								using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
+									"(name, address, landLine, mobilePhone, businessName, email) " +
+									"VALUES ('" + ClientNameTextBox.Text + "', '" +
+									ClientAddressTextBox.Text + "', '" +
+									ClientLandLineTextBox.Text + "', '" +
+									ClientMobilePhoneTextBox.Text + "', '" +
+									ClientBusinessNameTextBox.Text + "', '" +
+									ClientEmailTextBox.Text + "')"))
+								{
+									cmd.CommandType = CommandType.Text;
+									cmd.Connection = conn;
+									int a = cmd.ExecuteNonQuery();
+									if (a>0)
+									{
+										GetData(dataAdapter.SelectCommand.CommandText);
+										dataAdapter.Update((DataTable)bindingSource1.DataSource);
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed.");
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
+										ClientNameTextBox.Text = "";
+										ClientAddressTextBox.Text = "";
+										ClientLandLineTextBox.Text = "";
+										ClientMobilePhoneTextBox.Text = "";
+										ClientBusinessNameTextBox.Text = "";
+										ClientEmailTextBox.Text = "";
+
+
+										MessageBox.Show("Record Successfully Added!");
+									} else
+									{
+										MessageBox.Show("Adding Record Failed!");
+									}
+									conn.Close();
+								}
+
+							}
+							else
+							{
+								MessageBox.Show("Connection failed.");
+							}
+						}
+						catch (SqlException ex)
+						{
+							MessageBox.Show(ex.Message);
+						}
+					}
+				}
 				else
 				{
 					MessageBox.Show("Cannot add clients with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -192,44 +201,53 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Contractors table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
-                                    "(name, address, landLine, mobilePhone, employeeId, email) " +
-                                    "VALUES ('" + ContractorNameTextBox.Text + "', '" +
-                                    ContractorAddressTextBox.Text + "', '" +
-                                    ContractorLandLineTextBox.Text + "', '" +
-                                    ContractorMobilePhoneTextBox.Text + "', '" +
-                                    ContractorEmployeeIdTextBox.Text + "', '" +
-                                    ContractorEmailTextBox.Text + "')"))
-                                {
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.Connection = conn;
-                                    int a = cmd.ExecuteNonQuery();
-                                    if (a > 0)
-                                    {
-                                        GetData(dataAdapter.SelectCommand.CommandText);
-                                        dataAdapter.Update((DataTable)bindingSource1.DataSource);
-                                        MessageBox.Show("Record Successfully Added!");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Adding Record Failed!");
-                                    }
-                                    conn.Close();
-                                }
+									"(name, address, landLine, mobilePhone, employeeId, email) " +
+									"VALUES ('" + ContractorNameTextBox.Text + "', '" +
+									ContractorAddressTextBox.Text + "', '" +
+									ContractorLandLineTextBox.Text + "', '" +
+									ContractorMobilePhoneTextBox.Text + "', '" +
+									ContractorEmployeeIdTextBox.Text + "', '" +
+									ContractorEmailTextBox.Text + "')"))
+								{
+									cmd.CommandType = CommandType.Text;
+									cmd.Connection = conn;
+									int a = cmd.ExecuteNonQuery();
+									if (a > 0)
+									{
+										GetData(dataAdapter.SelectCommand.CommandText);
+										dataAdapter.Update((DataTable)bindingSource1.DataSource);
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed.");
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
+										ContractorNameTextBox.Text = "";
+										ContractorAddressTextBox.Text = "";
+										ContractorLandLineTextBox.Text = "";
+										ContractorMobilePhoneTextBox.Text = "";
+										ContractorEmployeeIdTextBox.Text = "";
+										ContractorEmailTextBox.Text = "";
 
-                }
-				else
+
+										MessageBox.Show("Record Successfully Added!");
+									}
+									else
+									{
+										MessageBox.Show("Adding Record Failed!");
+									}
+									conn.Close();
+								}
+
+							}
+							else
+							{
+								MessageBox.Show("Connection failed.");
+							}
+						}
+						catch (SqlException ex)
+						{
+							MessageBox.Show(ex.Message);
+						}
+					}
+
+				}
+                else
 				{
 					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
@@ -249,13 +267,12 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Jobs table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
-                                    "(shortDescription, location, dateAndTime, priority, clientId, jobCompleted, amountCharged) " +
+                                   "(shortDescription, location, dateAndTime, priority, clientId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
                                     DateTimePicker.Value + "', '" +
                                     JobPriorityComboBox.Text + "', '" +
                                     ClientIDTextBox.Text + "', '" +
-                                    //"2" + "', '" +
                                     "" + "', '" +
                                     0 + "')"))
                                 {
@@ -345,7 +362,324 @@ namespace WindowsFormsApp2
 		// imports records edited in the contractor software package and merges them with the existing database
         private void ImportButton_Click(object sender, EventArgs e)
         {
-			// still have to complete
-        }
+			using (var fbd = new FolderBrowserDialog())
+			{
+				DialogResult result = fbd.ShowDialog();
+
+				//if user selects a folder
+				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+				{
+					//get all files inside the folder
+					string[] files = Directory.GetFiles(fbd.SelectedPath);
+
+					//iterate through all files
+					foreach (String file in files)
+					{
+						//if it's a csv file
+						if (file.Contains(".csv"))
+						{
+							if (file.Contains("client"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
+													"(name, address, landLine, mobilePhone, businessName, email) " +
+													"VALUES ('" +
+													myArray[1] + "', '" +
+													myArray[2] + "', '" +
+													myArray[3] + "', '" +
+													myArray[4] + "', '" +
+													myArray[5] + "', '" +
+													myArray[6] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+														ClientNameTextBox.Text = "";
+														ClientAddressTextBox.Text = "";
+														ClientLandLineTextBox.Text = "";
+														ClientMobilePhoneTextBox.Text = "";
+														ClientBusinessNameTextBox.Text = "";
+														ClientEmailTextBox.Text = "";
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+							else if (file.Contains("contractor"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
+												"(name, address, landLine, mobilePhone, employeeId, email) " +
+												"VALUES ('" +
+												myArray[1] + "', '" +
+												myArray[2] + "', '" +
+												myArray[3] + "', '" +
+												myArray[4] + "', '" +
+												myArray[5] + "', '" +
+												myArray[6] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+														ContractorNameTextBox.Text = "";
+														ContractorAddressTextBox.Text = "";
+														ContractorLandLineTextBox.Text = "";
+														ContractorMobilePhoneTextBox.Text = "";
+														ContractorEmployeeIdTextBox.Text = "";
+														ContractorEmailTextBox.Text = "";
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+							else if (file.Contains("job"))
+							{
+								//read the file data
+								var textRead = new StreamReader(new FileStream(file, FileMode.Open));
+
+								//add to ScoutingDataGrid line by line
+								while (!textRead.EndOfStream)
+								{
+									var sb = new StringBuilder();
+									var line = textRead.ReadLine();
+
+									sb.Append(line);
+
+									string[] myArray = sb.ToString().Split(',');
+									using (conn = new SqlConnection(csb.ConnectionString))
+									{
+										try
+										{
+											conn.Open();
+											if (conn.State == ConnectionState.Open) // if connection.Open was successful
+											{
+												// inserting field values into the Clients table in the database using the dataAdapter
+												using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
+												"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
+												"VALUES ('" +
+												myArray[1] + "', '" +
+												myArray[2] + "', '" +
+												myArray[3] + "', '" +
+												myArray[4] + "', '" +
+												myArray[5] + "', '" +
+												myArray[6] + "', '" +
+												myArray[7] + "', '" +
+												myArray[8] + "')"))
+												{
+													cmd.CommandType = CommandType.Text;
+													cmd.Connection = conn;
+													int a = cmd.ExecuteNonQuery();
+													if (a > 0)
+													{
+														GetData(dataAdapter.SelectCommand.CommandText);
+														dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+														JobShortDescriptionTextBox.Text = "";
+														JobLocationTextBox.Text = "";
+														DateTimePicker.Value = DateTime.Today;
+														JobPriorityComboBox.Text = "1";
+														ClientIDTextBox.Text = "";
+
+
+														MessageBox.Show("Record Successfully Added!");
+													}
+													else
+													{
+														MessageBox.Show("Adding Record Failed!");
+													}
+													conn.Close();
+												}
+											}
+											else
+											{
+												MessageBox.Show("Connection failed.");
+											}
+										}
+										catch (SqlException ex)
+										{
+											MessageBox.Show(ex.Message);
+										}
+									}
+								}
+								textRead.Close();
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// below are tooltips used to increase software usability
+		private void AssignJobButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AssignJobButton, "Assign Contractors to Jobs");
+		}
+
+		private void ImportButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ImportButton, "Import and merge records from Contractor Software");
+		}
+
+		private void ExportButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ExportButton, "Export Selected Job Records for a specified Contractor");
+		}
+
+		private void AddButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddButton, "Adds data from current form fields to the DataBase and View");
+		}
+
+		private void ClientIDTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientIDTextBox, "ID number of the Client requesting the job");
+		}
+
+		private void JobPriorityComboBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(JobPriorityComboBox, "Job priority rated 1-5. 1 is lowest, 5 the highest");
+		}
+
+		private void ContractorLandLineTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorLandLineTextBox, "The Landline phone number of the contractor");
+		}
+
+		private void ContractorEmployeeIdTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ContractorEmployeeIdTextBox, "The organisational employee ID set by IQ Incorperated");
+		}
+
+		private void ClientLandLineTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientLandLineTextBox, "The Landline phone number of the client");
+		}
+
+		private void ClientBusinessNameTextBox_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(ClientBusinessNameTextBox, "The name of the client business");
+		}
+
+		private void AddClientRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddClientRadioButton, "Add a client to the DataBase");
+		}
+
+		private void AddContractorRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddContractorRadioButton, "Add a contractor to the DataBase");
+		}
+
+		private void AddJobRadioButton_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(AddJobRadioButton, "Add a job to the DataBase");
+		}
+
+		private void DataGridView_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(DataGridView, "A DataGridView showing DataBase records");
+		}
 	}
 }
