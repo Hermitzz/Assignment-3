@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportButton = new System.Windows.Forms.Button();
             this.ClientDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -370,7 +369,6 @@
             this.JobDetailsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
-=======
 			this.PrintButton = new System.Windows.Forms.Button();
 			this.ExportButton = new System.Windows.Forms.Button();
 			this.ClientDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -719,8 +717,6 @@
 			this.JobDetailsGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
 			this.ResumeLayout(false);
->>>>>>> 35e20ecdd76805e1afb5479fe748a607272b15f9
-
         }
 
         #endregion
