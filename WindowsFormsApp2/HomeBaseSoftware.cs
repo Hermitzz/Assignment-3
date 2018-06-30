@@ -60,8 +60,10 @@ namespace WindowsFormsApp2
                 AddJobGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
+
                 DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Clients");
+
             }
         }
 
@@ -74,10 +76,12 @@ namespace WindowsFormsApp2
 				AddJobGroupBox.Visible = false;
                 AddClientGroupBox.Visible = false;
 
+
                 DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Contractors");
 
             }
+
         }
 
         private void AddJobRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -89,11 +93,11 @@ namespace WindowsFormsApp2
 				AddClientGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-
                 DataGridView.DataSource = bindingSource1;
                 GetData("SELECT * from Jobs");
 
             }
+
         }
 
 		// checks which option is currently selected and adds data from the fields to the database.
@@ -270,7 +274,8 @@ namespace WindowsFormsApp2
 
 		private void ExportButton_Click(object sender, EventArgs e)
 		{
-			Export();
+			Export exportForm = new Export();
+			exportForm.Show();
 		}
 
 		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports

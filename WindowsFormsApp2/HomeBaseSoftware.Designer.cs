@@ -251,7 +251,7 @@
 			this.ExportButton.TabIndex = 29;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
-			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+			//this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// AssignJobButton
 			// 
@@ -262,7 +262,7 @@
 			this.AssignJobButton.TabIndex = 31;
 			this.AssignJobButton.Text = "Assign Job";
 			this.AssignJobButton.UseVisualStyleBackColor = true;
-			this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
+			//this.AssignJobButton.Click += new System.EventHandler(this.AssignJobButton_Click);
 			// 
 			// AddButton
 			// 
@@ -273,7 +273,7 @@
 			this.AddButton.TabIndex = 32;
 			this.AddButton.Text = "Add";
 			this.AddButton.UseVisualStyleBackColor = true;
-			this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+			//this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// AddClientGroupBox
 			// 
@@ -527,7 +527,7 @@
 			this.AddJobRadioButton.TabStop = true;
 			this.AddJobRadioButton.Text = "Add Job";
 			this.AddJobRadioButton.UseVisualStyleBackColor = true;
-			this.AddJobRadioButton.CheckedChanged += new System.EventHandler(this.AddJobRadioButton_CheckedChanged);
+			//this.AddJobRadioButton.CheckedChanged += new System.EventHandler(this.AddJobRadioButton_CheckedChanged);
 			// 
 			// dataBaseDataSet
 			// 
