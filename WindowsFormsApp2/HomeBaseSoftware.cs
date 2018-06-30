@@ -134,7 +134,6 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Clients table in the database using the dataAdapter
 <<<<<<< HEAD
-<<<<<<< HEAD
 								using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
 									"(name, address, landLine, mobilePhone, businessName, email) " +
 									"VALUES ('" + ClientNameTextBox.Text + "', '" +
@@ -181,8 +180,6 @@ namespace WindowsFormsApp2
 					}
 				}
 =======
-=======
->>>>>>> parent of 96aa473... small changes here and there
                                 using (SqlCommand cmd = new SqlCommand("INSERT Clients " +
                                     "(name, address, landLine, mobilePhone, businessName, email) " +
                                     "VALUES ('" + ClientNameTextBox.Text + "', '" +
@@ -219,9 +216,6 @@ namespace WindowsFormsApp2
                         }
                     }
                 }
-<<<<<<< HEAD
->>>>>>> parent of 96aa473... small changes here and there
-=======
 >>>>>>> parent of 96aa473... small changes here and there
 				else
 				{
@@ -244,7 +238,6 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Contractors table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Contractors " +
-<<<<<<< HEAD
 <<<<<<< HEAD
 									"(name, address, landLine, mobilePhone, employeeId, email) " +
 									"VALUES ('" + ContractorNameTextBox.Text + "', '" +
@@ -293,8 +286,6 @@ namespace WindowsFormsApp2
 
 				}
 =======
-=======
->>>>>>> parent of 96aa473... small changes here and there
                                     "(name, address, landLine, mobilePhone, employeeId, email) " +
                                     "VALUES ('" + ContractorNameTextBox.Text + "', '" +
                                     ContractorAddressTextBox.Text + "', '" +
@@ -332,9 +323,6 @@ namespace WindowsFormsApp2
                     }
 
                 }
-<<<<<<< HEAD
->>>>>>> parent of 96aa473... small changes here and there
-=======
 >>>>>>> parent of 96aa473... small changes here and there
 				else
 				{
@@ -356,7 +344,6 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Jobs table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
-<<<<<<< HEAD
 <<<<<<< HEAD
 									"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
 									"VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
@@ -405,8 +392,6 @@ namespace WindowsFormsApp2
 					}
 				}
 =======
-=======
->>>>>>> parent of 96aa473... small changes here and there
                                     "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
@@ -445,9 +430,6 @@ namespace WindowsFormsApp2
                         }
                     }
                 }
-<<<<<<< HEAD
->>>>>>> parent of 96aa473... small changes here and there
-=======
 >>>>>>> parent of 96aa473... small changes here and there
 				else
 				{
