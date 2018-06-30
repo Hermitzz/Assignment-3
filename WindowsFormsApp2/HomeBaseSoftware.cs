@@ -236,7 +236,7 @@ namespace WindowsFormsApp2
 			else if (AddJobRadioButton.Checked == true)
 			{
 				// checking for empty fields, except for the shortdescription and other areas such as amountCharged which are set by contractors later
-				if (JobLocationTextBox.Text.Trim() != "" && JobDateTimeTextBox.Text.Trim() != "")
+				if (JobLocationTextBox.Text.Trim() != "" && DateTimePicker.Value != null)
 				{
                     using (conn = new SqlConnection(csb.ConnectionString))
                     {
@@ -250,7 +250,7 @@ namespace WindowsFormsApp2
                                     "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
-                                    JobDateTimeTextBox.Text + "', '" +
+                                    DateTimePicker.Value + "', '" +
                                     JobPriorityComboBox.Text + "', '" +
                                     ClientIDTextBox.Text + "', '" +
                                     "2" + "', '" +
@@ -345,5 +345,5 @@ namespace WindowsFormsApp2
         {
 			// still have to complete
         }
-    }
+	}
 }

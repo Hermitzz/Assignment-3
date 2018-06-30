@@ -39,6 +39,7 @@
 			// 
 			// FromDatePicker
 			// 
+			this.FromDatePicker.CustomFormat = "";
 			this.FromDatePicker.Location = new System.Drawing.Point(91, 57);
 			this.FromDatePicker.Name = "FromDatePicker";
 			this.FromDatePicker.Size = new System.Drawing.Size(200, 20);

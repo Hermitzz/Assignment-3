@@ -30,6 +30,10 @@ namespace WindowsFormsApp2
 
 		private void Export_Load(object sender, EventArgs e)
 		{
+			// initializing DateTimePickers
+			FromDatePicker.Value = DateTime.Today;
+			ToDatePicker.Value = DateTime.Today;
+
 			using (conn = new SqlConnection(csb.ConnectionString))
 			{
 				try
@@ -79,8 +83,8 @@ namespace WindowsFormsApp2
 					if (conn.State == ConnectionState.Open) // if connection.Open was successful
 					{
 						// getting Jobs between dates in from and to datepickers as well as jobs with the selected contractor id in the ContractorComboBox
-						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Jobs WHERE dateAndTime > " + FromDatePicker.Value + " AND dateAndTime < " + ToDatePicker.Value + " AND " +
-							"ContractorId = " + ContractorComboBox.SelectedValue))
+						using (SqlCommand cmd = new SqlCommand("SELECT * FROM Jobs WHERE CONVERT(int, dateAndTime) > " + FromDatePicker.Value.ToShortDateString() + " AND CONVERT(int, dateAndTime) < " + ToDatePicker.Value.ToShortDateString() + " AND " +
+							"ContractorId = " + ContractorComboBox.Text.ToString()))
 						{
 							// establishing connection and making reader to read returned data from query
 							cmd.Connection = conn;
@@ -108,6 +112,7 @@ namespace WindowsFormsApp2
 		private void ExportFunction(DataTable results)
 		{
 			// here is where you make the export function, the results passed in should be the jobs for the contractor from a certain date period.
+			MessageBox.Show("Export Success!.");
 		}
 	}
 }

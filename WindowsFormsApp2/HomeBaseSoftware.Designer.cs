@@ -62,7 +62,6 @@
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 			this.JobPriorityLabel = new System.Windows.Forms.Label();
 			this.JobLocationTextBox = new System.Windows.Forms.TextBox();
-			this.JobDateTimeTextBox = new System.Windows.Forms.TextBox();
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.ContractorLandLineLabel = new System.Windows.Forms.Label();
 			this.ContractorMobilePhoneLabel = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@
 			this.contractorsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.ContractorsTableAdapter();
 			this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.jobsTableAdapter = new WindowsFormsApp2.DataBaseDataSetTableAdapters.JobsTableAdapter();
+			this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
 			this.AddClientGroupBox.SuspendLayout();
 			this.AddContractorGroupBox.SuspendLayout();
@@ -336,6 +336,7 @@
 			// 
 			// AddJobGroupBox
 			// 
+			this.AddJobGroupBox.Controls.Add(this.DateTimePicker);
 			this.AddJobGroupBox.Controls.Add(this.ClientIDTextBox);
 			this.AddJobGroupBox.Controls.Add(this.ClientIDLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobPriorityComboBox);
@@ -344,7 +345,6 @@
 			this.AddJobGroupBox.Controls.Add(this.JobDateAndTimeLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobPriorityLabel);
 			this.AddJobGroupBox.Controls.Add(this.JobLocationTextBox);
-			this.AddJobGroupBox.Controls.Add(this.JobDateTimeTextBox);
 			this.AddJobGroupBox.Controls.Add(this.JobShortDescriptionTextBox);
 			this.AddJobGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.AddJobGroupBox.Location = new System.Drawing.Point(0, 0);
@@ -405,11 +405,11 @@
 			// JobDateAndTimeLabel
 			// 
 			this.JobDateAndTimeLabel.AutoSize = true;
-			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(10, 218);
+			this.JobDateAndTimeLabel.Location = new System.Drawing.Point(9, 218);
 			this.JobDateAndTimeLabel.Name = "JobDateAndTimeLabel";
-			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(78, 13);
+			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
 			this.JobDateAndTimeLabel.TabIndex = 5;
-			this.JobDateAndTimeLabel.Text = "Date And Time";
+			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
 			// JobPriorityLabel
 			// 
@@ -426,13 +426,6 @@
 			this.JobLocationTextBox.Name = "JobLocationTextBox";
 			this.JobLocationTextBox.Size = new System.Drawing.Size(100, 20);
 			this.JobLocationTextBox.TabIndex = 10;
-			// 
-			// JobDateTimeTextBox
-			// 
-			this.JobDateTimeTextBox.Location = new System.Drawing.Point(154, 215);
-			this.JobDateTimeTextBox.Name = "JobDateTimeTextBox";
-			this.JobDateTimeTextBox.Size = new System.Drawing.Size(100, 20);
-			this.JobDateTimeTextBox.TabIndex = 24;
 			// 
 			// JobShortDescriptionTextBox
 			// 
@@ -569,6 +562,13 @@
 			// 
 			this.jobsTableAdapter.ClearBeforeFill = true;
 			// 
+			// DateTimePicker
+			// 
+			this.DateTimePicker.Location = new System.Drawing.Point(73, 212);
+			this.DateTimePicker.Name = "DateTimePicker";
+			this.DateTimePicker.Size = new System.Drawing.Size(182, 20);
+			this.DateTimePicker.TabIndex = 28;
+			// 
 			// HomeBaseForm
 			// 
 			this.ClientSize = new System.Drawing.Size(419, 536);
@@ -645,7 +645,6 @@
         private System.Windows.Forms.Label JobDateAndTimeLabel;
         private System.Windows.Forms.Label JobPriorityLabel;
         private System.Windows.Forms.TextBox JobLocationTextBox;
-        private System.Windows.Forms.TextBox JobDateTimeTextBox;
         private System.Windows.Forms.TextBox JobShortDescriptionTextBox;
         private System.Windows.Forms.RadioButton AddJobRadioButton;
         private System.Windows.Forms.ComboBox JobPriorityComboBox;
@@ -659,6 +658,7 @@
 		private DataBaseDataSetTableAdapters.JobsTableAdapter jobsTableAdapter;
 		private System.Windows.Forms.TextBox ClientIDTextBox;
 		private System.Windows.Forms.Label ClientIDLabel;
+		private System.Windows.Forms.DateTimePicker DateTimePicker;
 	}
 }
 
