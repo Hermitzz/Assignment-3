@@ -56,7 +56,7 @@ namespace WindowsFormsApp2
                 AddJobGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Clients;
+                DataGridView.DataSource = clientsBindingSource;
             }
         }
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApp2
 				AddJobGroupBox.Visible = false;
                 AddClientGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Contractors;
+                DataGridView.DataSource = contractorsBindingSource;
 			}
         }
 
@@ -82,7 +82,7 @@ namespace WindowsFormsApp2
 				AddClientGroupBox.Visible = false;
                 AddContractorGroupBox.Visible = false;
 
-				DataGridView.DataSource = dataBaseDataSet.Jobs;
+                DataGridView.DataSource = jobsBindingSource;
 			}
         }
 

@@ -355,7 +355,7 @@
             this.ImportButton.Text = "Import";
             this.ImportButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // ContractorSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -368,7 +368,7 @@
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.ImportButton);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "ContractorSoftware";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ClientDetailsGroupBox.ResumeLayout(false);
