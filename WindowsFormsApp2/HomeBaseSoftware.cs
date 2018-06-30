@@ -149,6 +149,15 @@ namespace WindowsFormsApp2
 									{
 										GetData(dataAdapter.SelectCommand.CommandText);
 										dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+										ClientNameTextBox.Text = "";
+										ClientAddressTextBox.Text = "";
+										ClientLandLineTextBox.Text = "";
+										ClientMobilePhoneTextBox.Text = "";
+										ClientBusinessNameTextBox.Text = "";
+										ClientEmailTextBox.Text = "";
+
+
 										MessageBox.Show("Record Successfully Added!");
 									} else
 									{
@@ -205,6 +214,15 @@ namespace WindowsFormsApp2
 									{
 										GetData(dataAdapter.SelectCommand.CommandText);
 										dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+										ContractorNameTextBox.Text = "";
+										ContractorAddressTextBox.Text = "";
+										ContractorLandLineTextBox.Text = "";
+										ContractorMobilePhoneTextBox.Text = "";
+										ContractorEmployeeIdTextBox.Text = "";
+										ContractorEmailTextBox.Text = "";
+
+
 										MessageBox.Show("Record Successfully Added!");
 									}
 									else
@@ -250,7 +268,7 @@ namespace WindowsFormsApp2
 									"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
 									"VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
 									JobLocationTextBox.Text + "', '" +
-									DateTimePicker.Value + "', '" +
+									DateTimePicker.Value.ToString() + "', '" +
 									JobPriorityComboBox.Text + "', '" +
 									ClientIDTextBox.Text + "', '" +
 									"2" + "', '" +
@@ -264,6 +282,14 @@ namespace WindowsFormsApp2
 									{
 										GetData(dataAdapter.SelectCommand.CommandText);
 										dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+										JobShortDescriptionTextBox.Text = "";
+										JobLocationTextBox.Text = "";
+										DateTimePicker.Value = DateTime.Today;
+										JobPriorityComboBox.Text = "1";
+										ClientIDTextBox.Text = "";
+
+
 										MessageBox.Show("Record Successfully Added!");
 									}
 									else
