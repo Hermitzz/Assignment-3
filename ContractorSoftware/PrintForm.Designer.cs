@@ -82,7 +82,6 @@
 			// ClientNameLabel
 			// 
 			this.ClientNameLabel.AutoSize = true;
-			this.ClientNameLabel.Enabled = false;
 			this.ClientNameLabel.Location = new System.Drawing.Point(10, 30);
 			this.ClientNameLabel.Name = "ClientNameLabel";
 			this.ClientNameLabel.Size = new System.Drawing.Size(35, 13);
@@ -92,7 +91,6 @@
 			// ClientAddressLabel
 			// 
 			this.ClientAddressLabel.AutoSize = true;
-			this.ClientAddressLabel.Enabled = false;
 			this.ClientAddressLabel.Location = new System.Drawing.Point(10, 60);
 			this.ClientAddressLabel.Name = "ClientAddressLabel";
 			this.ClientAddressLabel.Size = new System.Drawing.Size(45, 13);
@@ -102,7 +100,6 @@
 			// ClientLandLineLabel
 			// 
 			this.ClientLandLineLabel.AutoSize = true;
-			this.ClientLandLineLabel.Enabled = false;
 			this.ClientLandLineLabel.Location = new System.Drawing.Point(10, 90);
 			this.ClientLandLineLabel.Name = "ClientLandLineLabel";
 			this.ClientLandLineLabel.Size = new System.Drawing.Size(54, 13);
@@ -112,7 +109,6 @@
 			// ClientMobilePhoneLabel
 			// 
 			this.ClientMobilePhoneLabel.AutoSize = true;
-			this.ClientMobilePhoneLabel.Enabled = false;
 			this.ClientMobilePhoneLabel.Location = new System.Drawing.Point(10, 120);
 			this.ClientMobilePhoneLabel.Name = "ClientMobilePhoneLabel";
 			this.ClientMobilePhoneLabel.Size = new System.Drawing.Size(72, 13);
@@ -122,7 +118,6 @@
 			// ClientBusinessNameLabel
 			// 
 			this.ClientBusinessNameLabel.AutoSize = true;
-			this.ClientBusinessNameLabel.Enabled = false;
 			this.ClientBusinessNameLabel.Location = new System.Drawing.Point(10, 150);
 			this.ClientBusinessNameLabel.Name = "ClientBusinessNameLabel";
 			this.ClientBusinessNameLabel.Size = new System.Drawing.Size(80, 13);
@@ -132,7 +127,6 @@
 			// ClientEmailLabel
 			// 
 			this.ClientEmailLabel.AutoSize = true;
-			this.ClientEmailLabel.Enabled = false;
 			this.ClientEmailLabel.Location = new System.Drawing.Point(10, 180);
 			this.ClientEmailLabel.Name = "ClientEmailLabel";
 			this.ClientEmailLabel.Size = new System.Drawing.Size(32, 13);
@@ -214,7 +208,6 @@
 			// ContractorNameLabel
 			// 
 			this.ContractorNameLabel.AutoSize = true;
-			this.ContractorNameLabel.Enabled = false;
 			this.ContractorNameLabel.Location = new System.Drawing.Point(12, 174);
 			this.ContractorNameLabel.Name = "ContractorNameLabel";
 			this.ContractorNameLabel.Size = new System.Drawing.Size(87, 13);
@@ -224,7 +217,6 @@
 			// AmountLabel
 			// 
 			this.AmountLabel.AutoSize = true;
-			this.AmountLabel.Enabled = false;
 			this.AmountLabel.Location = new System.Drawing.Point(12, 151);
 			this.AmountLabel.Name = "AmountLabel";
 			this.AmountLabel.Size = new System.Drawing.Size(86, 13);
@@ -242,7 +234,6 @@
 			// JobShortDescriptionLabel
 			// 
 			this.JobShortDescriptionLabel.AutoSize = true;
-			this.JobShortDescriptionLabel.Enabled = false;
 			this.JobShortDescriptionLabel.Location = new System.Drawing.Point(10, 16);
 			this.JobShortDescriptionLabel.Name = "JobShortDescriptionLabel";
 			this.JobShortDescriptionLabel.Size = new System.Drawing.Size(88, 13);
