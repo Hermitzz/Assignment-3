@@ -92,11 +92,23 @@ namespace WindowsFormsApp2
 					NewClientsRow.mobilePhone = ClientMobilePhoneTextBox.Text.ToString();
 					NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
 					NewClientsRow.email = ClientEmailTextBox.Text.ToString();
-					this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
-					this.clientsTableAdapter.Insert(NewClientsRow.name, NewClientsRow.address, NewClientsRow.landLine, NewClientsRow.mobilePhone,
-						NewClientsRow.businessName, NewClientsRow.email);
-					this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
-					dataBaseDataSet.AcceptChanges();
+                    this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
+                 //   this.clientsTableAdapter.Insert(NewClientsRow.name, NewClientsRow.address, NewClientsRow.landLine, NewClientsRow.mobilePhone,
+                  //      NewClientsRow.businessName, NewClientsRow.email);
+                 //   dataBaseDataSet.AcceptChanges();
+
+                    try
+                    {
+                        this.Validate();
+                        this.clientsBindingSource.EndEdit();
+                        this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
+                        MessageBox.Show("Update successful");
+                    }
+                    catch (System.Exception ex)
+                    {
+                        MessageBox.Show("Update failed");
+                    }
+
 				}
 				else
 				{
