@@ -52,11 +52,9 @@ namespace WindowsFormsApp2
 
 							// iterating to read and add Contractor IDs found by reader to the combobox items collection.
 							// reader.VisibleFieldCount / reader.FieldCount should equal the amount of rows because i couldn't find a rows counting function.
-							for (int Index = 0; Index < reader.VisibleFieldCount / reader.FieldCount; Index++)
+							while(reader.Read())
 							{
-								reader.Read();
-								int conId = reader.GetInt32(0);
-								ContractorComboBox.Items.Add(conId);
+								ContractorComboBox.Items.Add(reader.GetValue(0));
 							}
 							conn.Close();
 						}
