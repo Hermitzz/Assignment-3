@@ -13,8 +13,6 @@ namespace ContractorSoftware
 {
     public partial class Form1 : Form
     {
-		private PrintDocument printDocument1 = new PrintDocument();
-		Bitmap memoryImage;
 
 		public Form1()
         {
@@ -26,26 +24,14 @@ namespace ContractorSoftware
 
 		}
 
-		private void PrintButton_Click(object sender, EventArgs e)
+        private void PrintButton_Click(object sender, EventArgs e)
 		{
-			CaptureScreen();
-			printDocument1.Print();
-		}
+            PrintForm printForm = new PrintForm(JobShortDescriptionTextBox.Text, ClientNameTextBox.Text, ClientAddressTextBox.Text,
+                                                ClientLandLineTextBox.Text, ClientMobilePhoneTextBox.Text, ClientBusinessNameTextBox.Text,
+                                                ClientEmailTextBox.Text, AmountTextBox.Text);
+            printForm.Show();
+        }
 
 
-		private void CaptureScreen()
-		{
-			Graphics myGraphics = this.CreateGraphics();
-			Size JobGroupBoxSize = JobDetailsGroupBox.Size;
-			memoryImage = new Bitmap(JobGroupBoxSize.Width, JobGroupBoxSize.Height, myGraphics);
-			Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-			memoryGraphics.CopyFromScreen(JobDetailsGroupBox.Location.X, JobDetailsGroupBox.Location.Y, JobDetailsGroupBox.Location.X + JobDetailsGroupBox.Size.Width, JobDetailsGroupBox.Size.Height, JobGroupBoxSize);
-		}
-
-		private void printDocument1_PrintPage(System.Object sender,
-			   System.Drawing.Printing.PrintPageEventArgs e)
-		{
-			e.Graphics.DrawImage(memoryImage, 0, 0);
-		}
-	}
+    }
 }
