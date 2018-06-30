@@ -279,7 +279,6 @@
 			this.PrintButton.TabIndex = 58;
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
-			this.PrintButton.MouseHover += new System.EventHandler(this.PrintButton_MouseHover);
 			// 
 			// printPreviewDialog1
 			// 

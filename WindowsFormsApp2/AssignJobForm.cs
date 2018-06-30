@@ -159,7 +159,6 @@ namespace WindowsFormsApp2
 			}
 		}
 
-		// below is a method to set the CurrentlySelectedRow to wherever a cell is clicked
 		private void JobDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex != JobDataGridView.TopLeftHeaderCell.RowIndex)
@@ -169,7 +168,6 @@ namespace WindowsFormsApp2
 			}
 		}
 
-		// below are tooltips to increase software usability
 		private void ContractorComboBox_MouseHover(object sender, EventArgs e)
 		{
 			ToolTip toolTip = new ToolTip();
@@ -179,13 +177,13 @@ namespace WindowsFormsApp2
 		private void JobDataGridView_MouseHover(object sender, EventArgs e)
 		{
 			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(JobDataGridView, "Select a job by clicking a cell in the row");
+			toolTip.SetToolTip(ContractorComboBox, "Select a job by clicking a cell in the row");
 		}
 
 		private void AssignButton_MouseHover(object sender, EventArgs e)
 		{
 			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(AssignButton, "Assign the contractor specified to the selected job");
+			toolTip.SetToolTip(ContractorComboBox, "Assign the contractor specified to the selected job");
 		}
 	}
 }

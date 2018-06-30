@@ -390,10 +390,13 @@
 			this.UpdateButton = new System.Windows.Forms.Button();
 			this.JobDetailsGroupBox = new System.Windows.Forms.GroupBox();
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			this.JobPriorityTextBox = new System.Windows.Forms.TextBox();
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
@@ -406,10 +409,15 @@
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+>>>>>>> parent of 35e20ec... All tooltips done
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -425,9 +433,12 @@
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.PrintButton.MouseHover += new System.EventHandler(this.PrintButton_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// ExportButton
 			// 
@@ -438,9 +449,12 @@
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.ExportButton.MouseHover += new System.EventHandler(this.ExportButton_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// ClientDetailsGroupBox
 			// 
@@ -574,9 +588,12 @@
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.UpdateButton.MouseHover += new System.EventHandler(this.UpdateButton_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// JobDetailsGroupBox
 			// 
@@ -600,6 +617,7 @@
 			this.JobDetailsGroupBox.Text = "Job Details";
 			// 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// JobDateTimePicker
 			// 
 			this.JobDateTimePicker.Enabled = false;
@@ -619,6 +637,8 @@
 			// 
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// JobPriorityTextBox
 			// 
 			this.JobPriorityTextBox.Location = new System.Drawing.Point(159, 237);
@@ -643,9 +663,12 @@
 			this.AmountTextBox.Size = new System.Drawing.Size(100, 20);
 			this.AmountTextBox.TabIndex = 33;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.AmountTextBox.MouseHover += new System.EventHandler(this.AmountTextBox_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// label2
 			// 
@@ -683,9 +706,12 @@
 			this.CompletionCheckBox.Text = "Completed";
 			this.CompletionCheckBox.UseVisualStyleBackColor = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.CompletionCheckBox.MouseHover += new System.EventHandler(this.CompletionCheckBox_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// JobShortDescriptionLabel
 			// 
@@ -704,9 +730,12 @@
 			this.JobShortDescriptionTextBox.Size = new System.Drawing.Size(248, 106);
 			this.JobShortDescriptionTextBox.TabIndex = 23;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.JobShortDescriptionTextBox.MouseHover += new System.EventHandler(this.JobShortDescriptionTextBox_MouseHover);
 =======
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// DataGridView
 			// 
@@ -726,8 +755,11 @@
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.ImportButton.MouseHover += new System.EventHandler(this.ImportButton_MouseHover);
 =======
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// JobDateTimePicker
 			// 
@@ -745,7 +777,10 @@
 			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
 			this.JobDateAndTimeLabel.TabIndex = 35;
 			this.JobDateAndTimeLabel.Text = "Date/Time";
+<<<<<<< HEAD
 >>>>>>> parent of 96aa473... small changes here and there
+=======
+>>>>>>> parent of 35e20ec... All tooltips done
 			// 
 			// ContractorSoftware
 			// 

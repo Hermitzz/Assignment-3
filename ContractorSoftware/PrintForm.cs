@@ -70,12 +70,6 @@ namespace ContractorSoftware
 			// showing print preview in a seperate dialog to confirm printing
             printPreviewDialog1.ShowDialog();
         }
-
-		// below are toolstips to increase software usability
-		private void PrintButton_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(PrintButton, "Print this form");
-		}
-	}
+        
+    }
 }

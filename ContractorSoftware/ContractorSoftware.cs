@@ -113,48 +113,5 @@ namespace ContractorSoftware
                 }
             }
         }
-
-		// below are tooltips to increase software usability
-		private void ImportButton_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(ImportButton, "Import records from HomeBase");
-		}
-
-		private void ExportButton_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(ExportButton, "Export records to be merged with main DataBase later");
-		}
-
-		private void JobShortDescriptionTextBox_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(JobShortDescriptionTextBox, "Add a short description of the job");
-		}
-
-		private void AmountTextBox_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(AmountTextBox, "Enter the amount charged for the job");
-		}
-
-		private void CompletionCheckBox_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(CompletionCheckBox, "Check when job is completed");
-		}
-
-		private void UpdateButton_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(UpdateButton, "Update the Data from form fields");
-		}
-
-		private void PrintButton_MouseHover(object sender, EventArgs e)
-		{
-			ToolTip toolTip = new ToolTip();
-			toolTip.SetToolTip(PrintButton, "Open printing form to print invoice");
-		}
-	}
+    }
 }
