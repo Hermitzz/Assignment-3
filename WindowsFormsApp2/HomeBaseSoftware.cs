@@ -245,7 +245,11 @@ namespace WindowsFormsApp2
 					}
 
 				}
+<<<<<<< HEAD
 				else
+=======
+                else
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 				{
 					MessageBox.Show("Cannot add contractors with empty fields", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
@@ -265,6 +269,7 @@ namespace WindowsFormsApp2
                             {
 								// inserting field values into the Jobs table in the database using the dataAdapter
 								using (SqlCommand cmd = new SqlCommand("INSERT Jobs " +
+<<<<<<< HEAD
                                     "(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
                                     "VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
                                     JobLocationTextBox.Text + "', '" +
@@ -303,6 +308,54 @@ namespace WindowsFormsApp2
                         }
                     }
                 }
+=======
+									"(shortDescription, location, dateAndTime, priority, clientId, ContractorId, jobCompleted, amountCharged) " +
+									"VALUES ('" + JobShortDescriptionTextBox.Text + "', '" +
+									JobLocationTextBox.Text + "', '" +
+									DateTimePicker.Value.ToString() + "', '" +
+									JobPriorityComboBox.Text + "', '" +
+									ClientIDTextBox.Text + "', '" +
+									"2" + "', '" +
+									"" + "', '" +
+									0 + "')"))
+								{
+									cmd.CommandType = CommandType.Text;
+									cmd.Connection = conn;
+									int a = cmd.ExecuteNonQuery();
+									if (a > 0)
+									{
+										GetData(dataAdapter.SelectCommand.CommandText);
+										dataAdapter.Update((DataTable)bindingSource1.DataSource);
+
+										JobShortDescriptionTextBox.Text = "";
+										JobLocationTextBox.Text = "";
+										DateTimePicker.Value = DateTime.Today;
+										JobPriorityComboBox.Text = "1";
+										ClientIDTextBox.Text = "";
+
+
+										MessageBox.Show("Record Successfully Added!");
+									}
+									else
+									{
+										MessageBox.Show("Adding Record Failed!");
+									}
+									conn.Close();
+								}
+
+							}
+							else
+							{
+								MessageBox.Show("Connection failed.");
+							}
+						}
+						catch (SqlException ex)
+						{
+							MessageBox.Show(ex.Message);
+						}
+					}
+				}
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 				else
 				{
 					MessageBox.Show("Cannot add jobs without location, date and time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -365,8 +418,6 @@ namespace WindowsFormsApp2
         }
 
 		// below are tooltips used to increase software usability
-
-
 		private void AssignJobButton_MouseHover(object sender, EventArgs e)
 		{
 			ToolTip toolTip = new ToolTip();
@@ -443,6 +494,12 @@ namespace WindowsFormsApp2
 		{
 			ToolTip toolTip = new ToolTip();
 			toolTip.SetToolTip(AddJobRadioButton, "Add a job to the DataBase");
+		}
+
+		private void DataGridView_MouseHover(object sender, EventArgs e)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.SetToolTip(DataGridView, "A DataGridView showing DataBase records");
 		}
 	}
 }

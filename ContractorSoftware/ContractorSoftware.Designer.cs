@@ -45,6 +45,14 @@
 			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
 			this.UpdateButton = new System.Windows.Forms.Button();
 			this.JobDetailsGroupBox = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			this.JobPriorityTextBox = new System.Windows.Forms.TextBox();
 			this.AmountLabel = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
@@ -56,8 +64,16 @@
 			this.JobShortDescriptionTextBox = new System.Windows.Forms.TextBox();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ImportButton = new System.Windows.Forms.Button();
+<<<<<<< HEAD
 			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+=======
+<<<<<<< HEAD
+=======
+			this.JobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.JobDateAndTimeLabel = new System.Windows.Forms.Label();
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			this.ClientDetailsGroupBox.SuspendLayout();
 			this.JobDetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -72,6 +88,13 @@
 			this.PrintButton.Text = "Print";
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.PrintButton.MouseHover += new System.EventHandler(this.PrintButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// ExportButton
 			// 
@@ -81,6 +104,13 @@
 			this.ExportButton.TabIndex = 54;
 			this.ExportButton.Text = "Export";
 			this.ExportButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.ExportButton.MouseHover += new System.EventHandler(this.ExportButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// ClientDetailsGroupBox
 			// 
@@ -213,6 +243,13 @@
 			this.UpdateButton.TabIndex = 52;
 			this.UpdateButton.Text = "Update";
 			this.UpdateButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.UpdateButton.MouseHover += new System.EventHandler(this.UpdateButton_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// JobDetailsGroupBox
 			// 
@@ -235,6 +272,10 @@
 			this.JobDetailsGroupBox.TabStop = false;
 			this.JobDetailsGroupBox.Text = "Job Details";
 			// 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// JobDateTimePicker
 			// 
 			this.JobDateTimePicker.Enabled = false;
@@ -252,6 +293,11 @@
 			this.JobDateAndTimeLabel.TabIndex = 35;
 			this.JobDateAndTimeLabel.Text = "Date/Time";
 			// 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// JobPriorityTextBox
 			// 
 			this.JobPriorityTextBox.Location = new System.Drawing.Point(159, 237);
@@ -275,6 +321,13 @@
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(100, 20);
 			this.AmountTextBox.TabIndex = 33;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.AmountTextBox.MouseHover += new System.EventHandler(this.AmountTextBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// label2
 			// 
@@ -311,6 +364,13 @@
 			this.CompletionCheckBox.TabIndex = 25;
 			this.CompletionCheckBox.Text = "Completed";
 			this.CompletionCheckBox.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.CompletionCheckBox.MouseHover += new System.EventHandler(this.CompletionCheckBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// JobShortDescriptionLabel
 			// 
@@ -328,6 +388,13 @@
 			this.JobShortDescriptionTextBox.Name = "JobShortDescriptionTextBox";
 			this.JobShortDescriptionTextBox.Size = new System.Drawing.Size(248, 106);
 			this.JobShortDescriptionTextBox.TabIndex = 23;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.JobShortDescriptionTextBox.MouseHover += new System.EventHandler(this.JobShortDescriptionTextBox_MouseHover);
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// DataGridView
 			// 
@@ -346,6 +413,12 @@
 			this.ImportButton.TabIndex = 49;
 			this.ImportButton.Text = "Import";
 			this.ImportButton.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+			this.ImportButton.MouseHover += new System.EventHandler(this.ImportButton_MouseHover);
+=======
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// JobDateTimePicker
 			// 
@@ -363,6 +436,10 @@
 			this.JobDateAndTimeLabel.Size = new System.Drawing.Size(58, 13);
 			this.JobDateAndTimeLabel.TabIndex = 35;
 			this.JobDateAndTimeLabel.Text = "Date/Time";
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 96aa473... small changes here and there
+>>>>>>> fb6515b12285e4f033dfbcbcc8c47c1340196617
 			// 
 			// ContractorSoftware
 			// 
