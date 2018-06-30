@@ -71,6 +71,7 @@
 			this.PrintButton.TabIndex = 55;
 			this.PrintButton.Text = "Print";
 			this.PrintButton.UseVisualStyleBackColor = true;
+			this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
 			// 
 			// ExportButton
 			// 
