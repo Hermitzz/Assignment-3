@@ -77,44 +77,6 @@ namespace WindowsFormsApp2
 			}
         }
 
-		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports
-		// whatever data is in the datagridview right now. Well its supposed to but there is a problem with the path.
-		private void Export()
-		{
-
-			if (DataGridView.Rows.Count != 0)
-			{
-
-				//put data grid view into csv
-				var StringBuilder = new StringBuilder();
-				
-
-				foreach (DataGridViewRow row in DataGridView.Rows)
-				{
-						foreach (DataGridViewCell cell in row.Cells)
-						{
-							StringBuilder.Append(cell.Value.ToString() + ",");
-						}
-						StringBuilder.AppendLine();
-				}
-
-				//current directory
-				string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-
-				TextWriter textWrite = new StreamWriter(exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text);
-
-				
-				textWrite.Write(StringBuilder.ToString());
-				textWrite.Close();
-
-				MessageBox.Show("Your data has been exported to " + exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
-				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-		}
-
 		// checks which option is currently selected and adds data from the fields to the database.
 		private void AddButton_Click(object sender, EventArgs e)
         {
@@ -131,6 +93,8 @@ namespace WindowsFormsApp2
 					NewClientsRow.businessName = ClientBusinessNameTextBox.Text.ToString();
 					NewClientsRow.email = ClientEmailTextBox.Text.ToString();
 					this.dataBaseDataSet.Clients.Rows.Add(NewClientsRow);
+					this.clientsTableAdapter.Insert(NewClientsRow.name, NewClientsRow.address, NewClientsRow.landLine, NewClientsRow.mobilePhone,
+						NewClientsRow.businessName, NewClientsRow.email);
 					this.clientsTableAdapter.Update(this.dataBaseDataSet.Clients);
 					dataBaseDataSet.AcceptChanges();
 				}
@@ -152,6 +116,8 @@ namespace WindowsFormsApp2
 					NewContractorRow.employeeId = ContractorEmployeeIdTextBox.Text.ToString();
 					NewContractorRow.email = ContractorEmailTextBox.Text.ToString();
 					this.dataBaseDataSet.Contractors.Rows.Add(NewContractorRow);
+					this.contractorsTableAdapter.Insert(NewContractorRow.name, NewContractorRow.address, NewContractorRow.landLine, NewContractorRow.mobilePhone,
+						NewContractorRow.employeeId, NewContractorRow.email);
 					this.contractorsTableAdapter.Update(this.dataBaseDataSet.Contractors);
 					dataBaseDataSet.AcceptChanges();
 				}
@@ -170,12 +136,13 @@ namespace WindowsFormsApp2
 					NewJobRow.dateAndTime = JobDateTimeTextBox.Text.ToString();
 					NewJobRow.priority = Int32.Parse(JobPriorityComboBox.Text.ToString());
 					this.dataBaseDataSet.Jobs.Rows.Add(NewJobRow);
-					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
+					this.jobsTableAdapter.Insert(NewJobRow.shortDescription, NewJobRow.location, NewJobRow.dateAndTime, NewJobRow.priority);
 					dataBaseDataSet.AcceptChanges();
+					this.jobsTableAdapter.Update(this.dataBaseDataSet.Jobs);
 				}
 				else
 				{
-					MessageBox.Show("Cannot add jobs without location and date + time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Cannot add jobs without location, date and time", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 			else
@@ -187,6 +154,44 @@ namespace WindowsFormsApp2
 		private void ExportButton_Click(object sender, EventArgs e)
 		{
 			Export();
+		}
+
+		// just took the barebones of our last export function and applied it to this program. Still havent made it so it selects the job data for the contractors given date period. It just exports
+		// whatever data is in the datagridview right now. Well its supposed to but there is a problem with the path.
+		private void Export()
+		{
+
+			if (DataGridView.Rows.Count != 0)
+			{
+
+				//put data grid view into csv
+				var StringBuilder = new StringBuilder();
+
+
+				foreach (DataGridViewRow row in DataGridView.Rows)
+				{
+					foreach (DataGridViewCell cell in row.Cells)
+					{
+						StringBuilder.Append(cell.Value.ToString() + ",");
+					}
+					StringBuilder.AppendLine();
+				}
+
+				//current directory
+				string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+
+				TextWriter textWrite = new StreamWriter(exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text);
+
+
+				textWrite.Write(StringBuilder.ToString());
+				textWrite.Close();
+
+				MessageBox.Show("Your data has been exported to " + exeFolder + "\\Jobs\\" + ContractorEmployeeIdTextBox.Text + " " + JobDateTimeTextBox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("No data to export", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 		}
 	}
 }
